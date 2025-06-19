@@ -7,7 +7,7 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      time: "11:39"
+      time: "11:47"
       timezone: "Asia/Kolkata"
     registries:
       - nvcr-repo
