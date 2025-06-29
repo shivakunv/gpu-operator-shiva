@@ -16,4 +16,4 @@ kind: Kustomization
 images:
 - name: gpu-operator
   newName: nvcr.io/nvidia/gpu-operator
-  newTag: v1.11.0
+  newTag: v25.3.1
