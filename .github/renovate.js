@@ -1,0 +1,39 @@
+module.exports = {
+  enabled: true,
+  onboarding: true,
+  extends: ['config:recommended'],
+  forkProcessing: 'enabled',
+  platform: 'github',
+  ignorePaths: ['vendor/**'],
+  enabledManagers: ['custom.regex'],
+  pinDigests: true,
+  hostRules: [
+    {
+      hostType: 'docker',
+      matchHost: 'nvcr.io',
+      username: '$oauthtoken',
+      password: process.env.REGISTRY_PASSWORD || 'shivacheck',
+    }
+  ],
+  onboardingConfig: {
+    extends: ['config:recommended'],
+  },
+  customManagers: [
+    {
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^deployments/gpu-operator/.*\\.ya?ml$/',
+        '/^bundle/manifests/.*\\.ya?ml$/'
+      ],
+      matchStrings: [
+        'image:\\s*(?<depName>[\\w./-]+):(?<currentValue>[\\w.-]+)@(?<currentDigest>sha256:[a-f0-9]+)',
+        '(?:(?:repository|image|name)\\s*:\\s*(?<depName>[\\w./-]+)[\\s\\S]+?)version\\s*:\\s*(?<currentValue>[\\w.-]+)',
+        'image:\\s*(?<depName>[\\w./-]+):(?<currentValue>[\\w.-]+)',
+        'image:\\s*(?<depName>[\\w./-]+)(?::(?<currentValue>[\\w.-]+))?(?:@sha256:(?<currentDigest>[a-f0-9]{64}))?'
+      ],
+      datasourceTemplate: 'docker',
+      versioningTemplate: 'docker'
+    }
+  ],
+  schedule: ['after 3am and before 4am'],
+}
