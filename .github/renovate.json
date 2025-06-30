@@ -4,7 +4,9 @@
     {
       "fileMatch": ["^deployments/gpu-operator/.*\\.ya?ml$", "^bundle/manifests/.*\\.ya?ml$"],
       "matchStrings": [
-        "\\bimage\\s*:\\s*(?<depName>[\\w./:-]+):(?<currentValue>[\\w.-]+)",
+        "image\\s*:\\s*(?<depName>[\\w./-]+)@sha256:(?<currentValue>[a-fA-F0-9]{64})",
+        "image\\s*:\\s*(?<depName>[\\w./-]+):(?<currentValue>[\\w.-]+)",
+        "(?:(?:repository|image|name)\\s*:\\s*(?<depName>[\\w./-]+)[\\s\\S]+?)version\\s*:\\s*(?<currentValue>[\\w.-]+)",
         "\\bvalue\\s*:\\s*(?<depName>[\\w./:-]+):(?<currentValue>[\\w.-]+)",
         "\\bversion\\s*:\\s*(?<depName>[\\w./:-]+):(?<currentValue>[\\w.-]+)"
       ],
