@@ -34,7 +34,7 @@
         "/^bundle/manifests/.*\\.ya?ml$/"
       ],
       "matchStrings": [
-        "image\\s*:\\s*(?<depName>[\\w./-]+):(?<currentValue>[\\w.-]+)"
+        "(?:(?:repository|image|name)\\s*:\\s*(?<depName>[\\w./-]+)[\\s\\S]+?)version\\s*:\\s*(?<currentValue>[\\w.-]+)"
       ],
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
