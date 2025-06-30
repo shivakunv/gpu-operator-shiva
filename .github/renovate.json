@@ -1,7 +1,6 @@
 {
   "enabled": true,
   "onboarding": true,
-  "repository": "shivakunv/gpu-operator-shiva",
   "extends": [
     "config:recommended"
   ],

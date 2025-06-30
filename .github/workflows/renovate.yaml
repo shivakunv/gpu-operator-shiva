@@ -25,3 +25,4 @@ jobs:
           # RENOVATE_AUTODISCOVER: true
           RENOVATE_LOG_LEVEL: debug
           DEBUG: hostRules
+          RENOVATE_REPOSITORIES: '["shivakunv/gpu-operator-shiva"]'
