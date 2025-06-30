@@ -1,8 +1,24 @@
 {
-  "extends": ["github:shivakunv/renovate"],
+  "enabled": true,
+  "onboarding": true,
+  "extends": ["config:base"],
+  "forkProcessing": "enabled",
+  "platform": "github",
   "ignorePaths": ["vendor/**"],
   "enabledManagers": ["custom.regex"],
   "pinDigests": true,
+
+  "hostRules": [
+    {
+      "hostType": "docker",
+      "matchHost": "nvcr.io",
+      "username": "$oauthtoken",
+      "password": "{{ REGISTRY_PASSWORD }}"
+    }
+  ],
+  "onboardingConfig": {
+    "extends": ["config:base"]
+  },
   "customManagers": [
     {
       "customType": "regex",
@@ -20,5 +36,6 @@
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
     }
-  ]
+  ],
+  "schedule": ["after 3am and before 4am every day"]
 }
