@@ -24,3 +24,4 @@ jobs:
           RENOVATE_LOG_LEVEL: debug
           DEBUG: hostRules
           RENOVATE_REPOSITORIES: '["shivakunv/gpu-operator-shiva"]'
+          RENOVATE_ONBOARDING: false

@@ -1,6 +1,5 @@
 {
   "enabled": true,
-  "onboarding": false,
   "extends": [
     "config:recommended"
   ],
