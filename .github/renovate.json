@@ -1,6 +1,6 @@
 {
   "enabled": true,
-  "onboarding": true,
+  "onboarding": false,
   "extends": [
     "config:recommended"
   ],
@@ -21,11 +21,6 @@
       "password": "{{ REGISTRY_PASSWORD }}"
     }
   ],
-  "onboardingConfig": {
-    "extends": [
-      "config:recommended"
-    ]
-  },
   "customManagers": [
     {
       "customType": "regex",

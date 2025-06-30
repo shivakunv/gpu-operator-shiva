@@ -17,13 +17,10 @@ jobs:
         uses: renovatebot/github-action@v43.0.1
         with:
           token: ${{ secrets.RENOVATE_TOKEN }}
-          # configurationFile: .github/renovate.json
-          configurationFile: .github/renovate.js
+          configurationFile: .github/renovate.json
         env:
           REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
-          # RENOVATE_CONFIG_FILE: .github/renovate.json
           LOG_LEVEL: debug
-          # RENOVATE_AUTODISCOVER: true
           RENOVATE_LOG_LEVEL: debug
           DEBUG: hostRules
           RENOVATE_REPOSITORIES: '["shivakunv/gpu-operator-shiva"]'
