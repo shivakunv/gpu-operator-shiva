@@ -21,7 +21,7 @@
     },
     {
       "hostType": "docker",
-      "matchHost": "https://nvcr.io",
+      "registryUrls": "https://nvcr.io",
       "username": "$oauthtoken",
       "password": "{{ REGISTRY_PASSWORD }}"
     }
