@@ -1,17 +1,16 @@
 {
   "enabled": true,
+  "onboarding": true,
   "extends": [
-    "config:recommended"
+    "config:base"
   ],
   "forkProcessing": "enabled",
-  "platform": "github",
   "ignorePaths": [
     "vendor/**"
   ],
   "enabledManagers": [
     "custom.regex"
   ],
-  "pinDigests": true,
   "hostRules": [
     {
       "hostType": "docker",
