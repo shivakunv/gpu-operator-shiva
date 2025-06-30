@@ -14,5 +14,5 @@
       "versioningTemplate": "docker"
     }
   ],
-  "schedule": ["before 4am every day"]
+  "schedule": ["every day"]
 }
