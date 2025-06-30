@@ -1,13 +1,18 @@
 {
   "enabled": true,
   "onboarding": true,
-  "extends": ["config:base"],
+  "extends": [
+    "config:recommended"
+  ],
   "forkProcessing": "enabled",
   "platform": "github",
-  "ignorePaths": ["vendor/**"],
-  "enabledManagers": ["custom.regex"],
+  "ignorePaths": [
+    "vendor/**"
+  ],
+  "enabledManagers": [
+    "custom.regex"
+  ],
   "pinDigests": true,
-
   "hostRules": [
     {
       "hostType": "docker",
@@ -17,7 +22,9 @@
     }
   ],
   "onboardingConfig": {
-    "extends": ["config:base"]
+    "extends": [
+      "config:recommended"
+    ]
   },
   "customManagers": [
     {
@@ -37,5 +44,7 @@
       "versioningTemplate": "docker"
     }
   ],
-  "schedule": ["after 3am and before 4am every day"]
+  "schedule": [
+    "after 3am and before 4am"
+  ]
 }
