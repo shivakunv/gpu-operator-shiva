@@ -20,7 +20,7 @@ jobs:
         env:
           RENOVATE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
-          RENOVATE_CONFIG_FILE: .github/renovate.json
+          # RENOVATE_CONFIG_FILE: .github/renovate.json
           LOG_LEVEL: debug
           RENOVATE_AUTODISCOVER: true
           RENOVATE_LOG_LEVEL: debug
