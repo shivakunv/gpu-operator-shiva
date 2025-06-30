@@ -1,6 +1,7 @@
 {
   "enabled": true,
   "onboarding": true,
+  "dependencyDashboardApproval": true,
   "extends": [
     "config:base"
   ],
@@ -15,6 +16,12 @@
     {
       "hostType": "docker",
       "matchHost": "nvcr.io",
+      "username": "$oauthtoken",
+      "password": "{{ REGISTRY_PASSWORD }}"
+    },
+    {
+      "hostType": "docker",
+      "matchHost": "https://nvcr.io",
       "username": "$oauthtoken",
       "password": "{{ REGISTRY_PASSWORD }}"
     }
