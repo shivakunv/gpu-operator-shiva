@@ -24,4 +24,4 @@ jobs:
           LOG_LEVEL: debug
           RENOVATE_AUTODISCOVER: true
           RENOVATE_LOG_LEVEL: debug
-           DEBUG: hostRules
+          DEBUG: hostRules
