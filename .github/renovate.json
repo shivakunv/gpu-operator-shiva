@@ -21,7 +21,7 @@
     },
     {
       "hostType": "docker",
-      "registryUrls": ["https://nvcr.io"],
+      "registryHost": ["https://nvcr.io"],
       "username": "$oauthtoken",
       "password": "{{ REGISTRY_PASSWORD }}"
     }
