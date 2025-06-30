@@ -1,6 +1,6 @@
 module.exports = {
   enabled: true,
-  onboarding: true,
+  onboarding: false,
   extends: ['config:recommended'],
   forkProcessing: 'enabled',
   platform: 'github',
