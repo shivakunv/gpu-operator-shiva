@@ -21,6 +21,14 @@
       "password": "{{ REGISTRY_PASSWORD }}"
     }
   ],
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "registryUrls": ["https://nvcr.io"],
+      "groupName": "NVCR Docker Images",
+      "pinVersions": true
+    }
+  ],
   "customManagers": [
     {
       "customType": "regex",
