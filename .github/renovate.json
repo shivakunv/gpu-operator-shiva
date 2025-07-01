@@ -1,14 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "onboarding": false,
-  "prHourlyLimit": 0,
-  "prConcurrentLimit": 0,
+  "prHourlyLimit": 10,
+  "prConcurrentLimit": 15,
   "dependencyDashboard": false,
   "extends": ["config:recommended", ":disableDependencyDashboard"],
   "forkProcessing": "enabled",
   "ignorePaths": ["vendor/**"],
   "enabledManagers": ["custom.regex"],
-  "baseBranches": ["main"],
   "customManagers": [
     {
       "customType": "regex",
@@ -21,5 +20,6 @@
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
     }
-  ]
+  ],
+  "schedule": ["after 3am and before 4am"]
 }
