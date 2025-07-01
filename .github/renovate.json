@@ -3,16 +3,10 @@
   "enabled": true,
   "onboarding": true,
   "dependencyDashboardApproval": true,
-  "extends": [
-    "config:base"
-  ],
+  "extends": ["config:recommended", "config:recommended"],
   "forkProcessing": "enabled",
-  "ignorePaths": [
-    "vendor/**"
-  ],
-  "enabledManagers": [
-    "custom.regex"
-  ],
+  "ignorePaths": ["vendor/**"],
+  "enabledManagers": ["custom.regex"],
   "hostRules": [
     {
       "hostType": "docker",
@@ -26,7 +20,7 @@
       "matchDatasources": ["docker"],
       "registryUrls": ["https://nvcr.io"],
       "groupName": "NVCR Docker Images",
-      "pinVersions": true
+      "rangeStrategy": "pin"
     }
   ],
   "customManagers": [
@@ -45,7 +39,5 @@
       "versioningTemplate": "docker"
     }
   ],
-  "schedule": [
-    "after 3am and before 4am"
-  ]
+  "schedule": ["after 3am and before 4am"]
 }
