@@ -18,12 +18,6 @@
       "matchHost": "nvcr.io",
       "username": "$oauthtoken",
       "password": "{{ REGISTRY_PASSWORD }}"
-    },
-    {
-      "hostType": "docker",
-      "registryHost": ["https://nvcr.io"],
-      "username": "$oauthtoken",
-      "password": "{{ REGISTRY_PASSWORD }}"
     }
   ],
   "customManagers": [

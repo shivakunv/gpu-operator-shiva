@@ -23,5 +23,7 @@ jobs:
           LOG_LEVEL: debug
           RENOVATE_LOG_LEVEL: debug
           RENOVATE_REPOSITORIES: '["shivakunv/gpu-operator-shiva"]'
-          RENOVATE_ONBOARDING: false
+          # RENOVATE_ONBOARDING: false
           DEBUG: hostRules,config,docker
+          RENOVATE_DOCKER_REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+          RENOVATE_DOCKER_REGISTRY_USERNAME: '$oauthtoken'
