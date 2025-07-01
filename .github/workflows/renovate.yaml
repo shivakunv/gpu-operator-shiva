@@ -28,6 +28,3 @@ jobs:
           RENOVATE_REPOSITORIES: '["shivakunv/gpu-operator-shiva"]'
           # RENOVATE_ONBOARDING: false
           DEBUG: hostRules,config,docker
-          RENOVATE_DOCKER_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
-          RENOVATE_DOCKER_USERNAME: '$oauthtoken'
-          RENOVATE_DOCKER_REGISTRY_URL: 'nvcr.io'
