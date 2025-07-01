@@ -21,12 +21,12 @@ jobs:
         with:
           configurationFile: .github/renovate.json
         env:
-          RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
-          REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+          RENOVATE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
           LOG_LEVEL: debug
           RENOVATE_LOG_LEVEL: debug
           RENOVATE_REPOSITORIES: '["shivakunv/gpu-operator-shiva"]'
           # RENOVATE_ONBOARDING: false
           DEBUG: hostRules,config,docker
-          DOCKER_USERNAME: "$oauthtoken"
-          DOCKER_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+          # DOCKER_USERNAME: "$oauthtoken"
+          # DOCKER_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}

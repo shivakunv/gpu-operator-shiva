@@ -7,22 +7,6 @@
   "forkProcessing": "enabled",
   "ignorePaths": ["vendor/**"],
   "enabledManagers": ["custom.regex"],
-  "hostRules": [
-    {
-      "hostType": "docker",
-      "matchHost": "nvcr.io",
-      "username": "$oauthtoken",
-      "password": "{{ REGISTRY_PASSWORD }}"
-    }
-  ],
-  "packageRules": [
-    {
-      "matchDatasources": ["docker"],
-      "registryUrls": ["https://nvcr.io"],
-      "groupName": "NVCR Docker Images",
-      "rangeStrategy": "pin"
-    }
-  ],
   "customManagers": [
     {
       "customType": "regex",
