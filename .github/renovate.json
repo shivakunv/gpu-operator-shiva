@@ -24,8 +24,7 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "/^deployments/gpu-operator/.*\\.ya?ml$/",
-        "/^bundle/manifests/.*\\.ya?ml$/"
+        "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
       ],
       "matchStrings": [
         "image:\\s*(?<depName>[\\w./-]+):(?<currentValue>[\\w.-]+)@(?<currentDigest>sha256:[a-f0-9]+)",
