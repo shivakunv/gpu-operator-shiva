@@ -1,6 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "enabled": true,
+  "onboarding": false,
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
+  "dependencyDashboard": false,
   "extends": ["config:recommended", ":disableDependencyDashboard"],
   "forkProcessing": "enabled",
   "ignorePaths": ["vendor/**"],
