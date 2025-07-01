@@ -8,6 +8,7 @@
   "forkProcessing": "enabled",
   "ignorePaths": ["vendor/**"],
   "enabledManagers": ["custom.regex"],
+  "baseBranches": ["main"],
   "customManagers": [
     {
       "customType": "regex",
@@ -20,6 +21,5 @@
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
     }
-  ],
-  "schedule": ["after 3am and before 4am"]
+  ]
 }
