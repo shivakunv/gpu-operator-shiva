@@ -21,7 +21,7 @@ jobs:
           RENOVATE_REPOSITORIES: '["shivakunv/gpu-operator-shiva"]'
           RENOVATE_ONBOARDING: false
           # LOG_LEVEL: debug
-          # RENOVATE_LOG_LEVEL: debug
+          RENOVATE_LOG_LEVEL: debug
           # DEBUG: hostRules,config,docker
           
           
