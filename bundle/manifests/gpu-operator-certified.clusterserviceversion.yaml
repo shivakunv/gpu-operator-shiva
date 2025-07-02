@@ -201,9 +201,7 @@ spec:
   apiservicedefinitions: {}
   relatedImages:
     - name: gpu-operator-image
-      image: ghcr.io/nvidia/gpu-operator:main-latest
-    - name: dcgm-exporter-image
-      image: nvcr.io/nvidia/k8s/dcgm-exporter@sha256:c835d8cede5d25398b4d49404aa0f651ce28ead5ee698121528b4d2939db9359
+      image: ghcr.io/nvidia/gpu-operator:95270713@sha256:5e94c34af7290f952a6d5f11bc579748c5890df68735cf9f9ee616e394a261e1
     - name: dcgm-image
       image: nvcr.io/nvidia/cloud-native/dcgm@sha256:954cb65ae82d3663903299b2c9dab006df8b2bb6d59115ac5f63262f3b10aa30
     - name: container-toolkit-image
