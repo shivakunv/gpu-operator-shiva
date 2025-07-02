@@ -18,9 +18,10 @@ jobs:
           configurationFile: .github/renovate.json
         env:
           RENOVATE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # LOG_LEVEL: debug
-          # RENOVATE_LOG_LEVEL: debug
           RENOVATE_REPOSITORIES: '["shivakunv/gpu-operator-shiva"]'
-          # DEBUG: hostRules,config,docker
           RENOVATE_ONBOARDING: false
+          LOG_LEVEL: debug
+          RENOVATE_LOG_LEVEL: debug
+          DEBUG: hostRules,config,docker
+          
           
