@@ -3,11 +3,16 @@
   "prHourlyLimit": 30,
   "prConcurrentLimit": 30,
   "dependencyDashboard": false,
-  "extends": ["config:recommended", ":disableDependencyDashboard"],
+  "extends": [
+    "config:recommended",
+    ":disableDependencyDashboard",
+    "config:recommended",
+    ":disableDependencyDashboard"
+  ],
   "forkProcessing": "enabled",
   "ignorePaths": ["vendor/**"],
   "enabledManagers": ["custom.regex"],
-  "recreateClosed": true,
+  "recreateWhen": "always",
   "customManagers": [
     {
       "customType": "regex",
