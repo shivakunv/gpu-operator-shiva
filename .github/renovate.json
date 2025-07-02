@@ -14,17 +14,7 @@
   "enabledManagers": ["custom.regex"],
   "recreateWhen": "always",
   "customManagers": [
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
-      ],
-      "matchStrings": [
-        "[-\\s]*value:\\s*\"?(?<depName>[^:\"]+)(?::(?<currentValue>[^@\"]+))?@(?<currentDigest>sha256:[a-f0-9]{64})\"?"
-      ],
-      "versioningTemplate": "{{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}",
-      "datasourceTemplate": "docker"
-    },
+   
     {
       "customType": "regex",
       "managerFilePatterns": [
