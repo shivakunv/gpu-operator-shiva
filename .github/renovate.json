@@ -7,7 +7,6 @@
   "forkProcessing": "enabled",
   "ignorePaths": ["vendor/**"],
   "enabledManagers": ["custom.regex"],
-  "platform": "github",
   "customManagers": [
     {
       "customType": "regex",
@@ -18,8 +17,7 @@
         "\\s+image: (?<depName>.*?)(?::(?<currentValue>.*?))?@(?<currentDigest>sha256:[a-f0-9]+)\\s"
       ],
       "versioningTemplate": "{{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}",
-      "datasourceTemplate": "docker",
-      "depNameTemplate": "nvcr.io/nvidia/k8s/dcgm-exporter"
+      "datasourceTemplate": "docker"
     }
   ]
 }
