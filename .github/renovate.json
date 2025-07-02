@@ -15,7 +15,7 @@
         "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
       ],
       "matchStrings": [
-        "image:\\s*(?<depName>[\\w./-]+)(?::(?<currentValue>[\\w.-]+))?(?:@sha256:(?<currentDigest>[a-f0-9]{64}))?"
+        "image:\\s*\\'?\\\"?(?<depName>[^:]+):(?<currentValue>[^\\s\\'\\\"]+)\\'?\\\"?\\s*"
       ],
       "autoReplaceStringTemplate": "image: {{depName}}:{{newValue}}",
       "datasourceTemplate": "docker"
