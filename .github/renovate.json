@@ -20,31 +20,31 @@
     }
   ],
   "packageRules": [
-  {
-    "matchDepNames": ["nvcr.io/nvidia/cuda"],
-    "datasource": "docker",
-    "enabled": true
-  },
-  {
-    "matchDepNames": ["nvcr.io/nvidia/driver"],
-    "datasource": "docker",
-    "enabled": true
-  },
-  {
-    "matchDepNames": ["nvcr.io/nvidia/k8s-device-plugin"],
-    "datasource": "docker",
-    "enabled": true
-  },
-  {
-    "matchDepNames": ["nvcr.io/nvidia/k8s/container-toolkit"],
-    "datasource": "docker",
-    "enabled": true
-  },
-  {
-    "matchDepNames": ["nvcr.io/nvidia/k8s/dcgm-exporter"],
-    "datasource": "docker",
-    "enabled": true
-  }
+    {
+      "matchDepNames": ["nvcr.io/nvidia/cuda"],
+      "datasource": "docker",
+      "enabled": true
+    },
+    {
+      "matchDepNames": ["nvcr.io/nvidia/driver"],
+      "datasource": "docker",
+      "enabled": true
+    },
+    {
+      "matchDepNames": ["nvcr.io/nvidia/k8s-device-plugin"],
+      "datasource": "docker",
+      "enabled": true
+    },
+    {
+      "matchDepNames": ["nvcr.io/nvidia/k8s/container-toolkit"],
+      "datasource": "docker",
+      "enabled": true
+    },
+    {
+      "matchDepNames": ["nvcr.io/nvidia/k8s/dcgm-exporter"],
+      "datasource": "docker",
+      "enabled": true
+    }
   ],
   "schedule": ["after 3am and before 4am"]
 }
