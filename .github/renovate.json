@@ -16,7 +16,7 @@
       ],
       "matchStrings": [
         "#\\s*image:\\s*(datasource=(?<datasource>.*?) )?depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s*\\w*:\\s*(?<currentValue>.*)\\s"
-      ],
+      ]
     }
   ]
 }
