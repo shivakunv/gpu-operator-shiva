@@ -15,42 +15,11 @@
         "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
       ],
       "matchStrings": [
-        "image:\\s*\\'?\\\"?(?<depName>[^:]+):(?<currentValue>[^\\s\\'\\\"]+)\\'?\\\"?\\s*"
+        "\\s+image: (?<depName>.*?)(?::(?<currentValue>.*?))?@(?<currentDigest>sha256:[a-f0-9]+)\\s"
       ],
-      "autoReplaceStringTemplate": "image: {{depName}}:{{newValue}}",
-      "datasourceTemplate": "docker"
-    }
-  ],
-  "packageRules": [
-    {
-      "matchDepNames": ["nvcr.io/nvidia/cuda"],
-      "matchDatasources": "docker",
-      "matchManagers": "regex",
-      "enabled": true
-    },
-    {
-      "matchDepNames": ["nvcr.io/nvidia/driver"],
-      "matchDatasources": "docker",
-      "matchManagers": "regex",
-      "enabled": true
-    },
-    {
-      "matchDepNames": ["nvcr.io/nvidia/k8s-device-plugin"],
-      "matchDatasources": "docker",
-      "matchManagers": "regex",
-      "enabled": true
-    },
-    {
-      "matchDepNames": ["nvcr.io/nvidia/k8s/container-toolkit"],
-      "matchDatasources": "docker",
-      "matchManagers": "regex",
-      "enabled": true
-    },
-    {
-      "matchDepNames": ["nvcr.io/nvidia/k8s/dcgm-exporter"],
-      "matchDatasources": "docker",
-      "matchManagers": "regex",
-      "enabled": true
+      "versioningTemplate": "{{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}",
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "nvcr.io/nvidia/k8s/dcgm-exporter"
     }
   ]
 }
