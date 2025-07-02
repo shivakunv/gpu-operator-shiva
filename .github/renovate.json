@@ -22,27 +22,27 @@
   "packageRules": [
     {
       "matchDepNames": ["nvcr.io/nvidia/cuda"],
-      "matchDatasource": "docker",
+      "matchDatasources": "docker",
       "enabled": true
     },
     {
       "matchDepNames": ["nvcr.io/nvidia/driver"],
-      "matchDatasource": "docker",
+      "matchDatasources": "docker",
       "enabled": true
     },
     {
       "matchDepNames": ["nvcr.io/nvidia/k8s-device-plugin"],
-      "matchDatasource": "docker",
+      "matchDatasources": "docker",
       "enabled": true
     },
     {
       "matchDepNames": ["nvcr.io/nvidia/k8s/container-toolkit"],
-      "matchDatasource": "docker",
+      "matchDatasources": "docker",
       "enabled": true
     },
     {
       "matchDepNames": ["nvcr.io/nvidia/k8s/dcgm-exporter"],
-      "matchDatasource": "docker",
+      "matchDatasources": "docker",
       "enabled": true
     }
   ],
