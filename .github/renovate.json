@@ -15,9 +15,9 @@
         "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
       ],
       "matchStrings": [
-        "\\s+image|value: (?<depName>.*?)(?::(?<currentValue>.*?))?@(?<currentDigest>sha256:[a-f0-9]+)\\s"
+        "\\s+(?:image|value):\\s*(?<depName>tcr\\.io/nv/k8s/dc)(?::(?<currentValue>[\\w.-]+))?@(?<currentDigest>sha256:[a-f0-9]+)"
       ],
-      "versioningTemplate": "{{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}",
+      "versioningTemplate": "{{depName}}:{{newValue}}@{{newDigest}}",
       "datasourceTemplate": "docker"
     }
   ]
