@@ -7,6 +7,7 @@
   "forkProcessing": "enabled",
   "ignorePaths": ["vendor/**"],
   "enabledManagers": ["custom.regex"],
+  "platform": "github",
   "customManagers": [
     {
       "customType": "regex",
@@ -16,6 +17,7 @@
       "matchStrings": [
         "image:\\s*(?<depName>[\\w./-]+)(?::(?<currentValue>[\\w.-]+))?(?:@sha256:(?<currentDigest>[a-f0-9]{64}))?"
       ],
+      "autoReplaceStringTemplate": "image: {{depName}}:{{newValue}}",
       "datasourceTemplate": "docker"
     }
   ],
