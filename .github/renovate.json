@@ -32,7 +32,7 @@
         "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
       ],
       "matchStrings": [
-        "- name: (?<suffix>[\\w-]+)[-\\s]*image: nvcr\\.io/nvidia/driver:(?<currentValue>[\\w.-]+)"
+        "[-\\s]*image: (?<depName>.*?)(?::(?<currentValue>.*?))?@(?<currentDigest>sha256:[a-f0-9]{64})"
       ],
       "datasourceTemplate": "docker",
       "packageNameTemplate": "nvcr.io/nvidia/driver",
