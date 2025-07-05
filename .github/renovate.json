@@ -37,7 +37,7 @@
      "datasourceTemplate": "docker",
       "packageNameTemplate": "nvcr.io/nvidia/driver",
       "versioningTemplate": "docker",
-      "extractVersionTemplate": "digest",
+      "extractVersionTemplate": "digest"
     }
   ],
   "packageRules": [
