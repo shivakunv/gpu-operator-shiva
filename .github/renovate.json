@@ -32,9 +32,9 @@
         "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
       ],
       "matchStrings": [
-        "driver:\\s*nvcr\\.io/nvidia/driver@sha256:(?<currentDigest>[a-fA-F0-9]{64})",
-        "driver:\\s*nvcr\\.io/nvidia/driver@sha256:(?<currentDigest>[a-fA-F0-9]{64})",
-        "driver:\\s*nvcr\\.io/nvidia/driver@sha256:(?<currentDigest>[a-fA-F0-9]{64})"
+        "driver:\\s*nvcr\\.io/nvidia/driver@sha256:(?<currentValue>[a-fA-F0-9]{64})",
+        "driver:\\s*nvcr\\.io/nvidia/driver@sha256:(?<currentValue>[a-fA-F0-9]{64})",
+        "driver:\\s*nvcr\\.io/nvidia/driver@sha256:(?<currentValue>[a-fA-F0-9]{64})"
       ],
       "datasourceTemplate": "docker",
       "packageNameTemplate": "nvcr.io/nvidia/driver",
