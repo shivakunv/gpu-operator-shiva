@@ -32,13 +32,13 @@
         "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
       ],
       "matchStrings": [
-        "[-\\s]*value:\\s*\"?(?<depName>[^:\"]+)(?::(?<currentValue>[^@\"]+))?@(?<currentDigest>sha256:[a-f0-9]{64})\"?",
-        "[-\\s]*image: (?<depName>.*?)(?::(?<currentValue>.*?))?@(?<currentDigest>sha256:[a-f0-9]{64})",
-        "- name: (?<suffix>[\\w-]+)[-\\s]*image: (?<depName>.*?)(?::(?<currentValue>.*?))?@(?<currentDigest>sha256:[a-f0-9]{64})"
+        "driver:\\s*nvcr\\.io/nvidia/driver@sha256:(?<currentDigest>[a-fA-F0-9]{64})",
+        "driver:\\s*nvcr\\.io/nvidia/driver@sha256:(?<currentDigest>[a-fA-F0-9]{64})",
+        "driver:\\s*nvcr\\.io/nvidia/driver@sha256:(?<currentDigest>[a-fA-F0-9]{64})"
       ],
-      "versioningTemplate": "{{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}",
       "datasourceTemplate": "docker",
-      "extractVersionTemplate": "digest"
+      "packageNameTemplate": "nvcr.io/nvidia/driver",
+      "versioningTemplate": "docker"
     }
   ],
   "packageRules": [
