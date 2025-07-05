@@ -33,19 +33,19 @@
     {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["nvcr.io/nvidia/driver"],
-      "matchPaths": ["driver1"],
+      "matchPaths": ["driver-image"],
       "groupName": "driver-image"
     },
     {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["nvcr.io/nvidia/driver"],
-      "matchPaths": ["driver2"],
+      "matchPaths": ["driver-image-550"],
       "groupName": "driver-image-550"
     },
     {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["nvcr.io/nvidia/driver"],
-      "matchPaths": ["driver3"],
+      "matchPaths": ["driver-image-535"],
       "groupName": "driver-image-535"
     }
   ]
