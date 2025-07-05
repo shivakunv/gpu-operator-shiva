@@ -36,9 +36,10 @@
         "-\\s]*image:\\s*nvcr\\.io/nvidia/driver@sha256:(?<currentValue>[a-fA-F0-9]{64})",
         "-\\s]*image:\\s*nvcr\\.io/nvidia/driver@sha256:(?<currentValue>[a-fA-F0-9]{64})"
       ],
-      "datasourceTemplate": "docker",
+     "datasourceTemplate": "docker",
       "packageNameTemplate": "nvcr.io/nvidia/driver",
-      "versioningTemplate": "docker"
+      "versioningTemplate": "docker",
+      "extractVersionTemplate": "digest"
     }
   ],
   "packageRules": [
