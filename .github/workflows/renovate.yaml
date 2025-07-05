@@ -25,6 +25,6 @@ jobs:
           RENOVATE_ONBOARDING: false
           # LOG_LEVEL: debug
           RENOVATE_LOG_LEVEL: debug
-          # DEBUG: hostRules,config,docker
+          DEBUG: hostRules,config,docker,renovate
           
           
