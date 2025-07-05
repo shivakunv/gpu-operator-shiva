@@ -32,32 +32,19 @@
         "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
       ],
       "matchStrings": [
-        "[-\\s]*image: (?<depName>.*?)(?::(?<tag>.*?))?@(?<currentValue>sha256:[a-f0-9]{64})"
+        "[-\\s]*image: nvcr\\.io/nvidia/driver@(?<currentValue>sha256:[a-f0-9]{64}))"
       ],
      "datasourceTemplate": "docker",
       "packageNameTemplate": "nvcr.io/nvidia/driver",
       "versioningTemplate": "docker",
-      "extractVersionTemplate": "digest"
+      "extractVersionTemplate": "digest",
     }
   ],
   "packageRules": [
     {
-      "matchDatasources": ["docker"],
       "matchPackageNames": ["nvcr.io/nvidia/driver"],
-      "matchFileNames": ["driver-image"],
-      "groupName": "driver-image"
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackageNames": ["nvcr.io/nvidia/driver"],
-      "matchFileNames": ["driver-image-550"],
-      "groupName": "driver-image-550"
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackageNames": ["nvcr.io/nvidia/driver"],
-      "matchFileNames": ["driver-image-535"],
-      "groupName": "driver-image-535"
+      "groupName": "nvidia-driver-digest-updates",
+      "separateMinorPatch": true
     }
   ]
 }
