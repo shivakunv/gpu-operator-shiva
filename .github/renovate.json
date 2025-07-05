@@ -7,6 +7,10 @@
     "config:recommended",
     ":disableDependencyDashboard",
     "config:recommended",
+    ":disableDependencyDashboard",
+    "config:recommended",
+    ":disableDependencyDashboard",
+    "config:recommended",
     ":disableDependencyDashboard"
   ],
   "forkProcessing": "enabled",
