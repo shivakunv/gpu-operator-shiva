@@ -205,7 +205,7 @@ spec:
     - name: dcgm-exporter-image
       image: nvcr.io/nvidia/k8s/dcgm-exporter@sha256:c835d8cede5d25398b4d49404aa0f651ce28ead5ee698121528b4d2939db9359
     - name: dcgm-image
-      image: nvcr.io/nvidia/cloud-native/dcgm@sha256:954cb65ae82d3663903299b2c9dab006df8b2bb6d59115ac5f63262f3b10aa30
+      image: nvcr.io/nvidia/cloud-native/dcgm@sha256:7d9d069db7c5ee37b6c6e6b18464552fa99716354fe658ce780eae6ba4c0bc21
     - name: container-toolkit-image
       image: nvcr.io/nvidia/k8s/container-toolkit@sha256:51c8f71d3b3c08ae4eb4853697e3f8e6f11e435e666e08210178e6a1faf8028f
     - name: driver-image
