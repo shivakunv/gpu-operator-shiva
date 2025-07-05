@@ -25,6 +25,8 @@
   "ignorePaths": ["vendor/**"],
   "enabledManagers": ["custom.regex"],
   "recreateWhen": "always",
+  "separateMultipleMajor": false,
+  "separateMinorPatch": false,
   "customManagers": [
     {
       "customType": "regex",
@@ -38,6 +40,12 @@
       ],
       "versioningTemplate": "{{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}",
       "datasourceTemplate": "docker"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": [".*"],
+      "groupName": "all updates"
     }
   ]
 }
