@@ -25,5 +25,3 @@ jobs:
           RENOVATE_ONBOARDING: false
           RENOVATE_LOG_LEVEL: debug
           DEBUG: hostRules,config,docker,renovate,regexManagers
-          
-          
