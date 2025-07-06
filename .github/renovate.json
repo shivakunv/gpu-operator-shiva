@@ -44,8 +44,8 @@
   ],
   "packageRules": [
     {
-      "matchPackagePatterns": [".*"],
-      "groupName": "bump all nvcr packages, skip driver"
+      "groupName": "bump all nvcr packages, skip driver",
+      "matchPackageNames": ["/.*/"]
     },
     {
       "matchPackageNames": ["nvcr.io/nvidia/driver"],
