@@ -45,7 +45,7 @@
   "packageRules": [
     {
       "matchPackagePatterns": [".*"],
-      "groupName": "nvcr image updates except driver"
+      "groupName": "bump all nvcr packages, skip driver"
     },
     {
       "matchPackageNames": ["nvcr.io/nvidia/driver"],
