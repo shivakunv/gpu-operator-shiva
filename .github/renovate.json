@@ -36,7 +36,7 @@
       "matchStrings": [
         "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>\\d+\\.\\d+\\.\\d+-base-ubi\\d+)"
       ],
-      "depNameTemplate": "{{repo}}/{{image}}-base-ubi",
+      "depNameTemplate": "{{repo}}/{{image}}",
       "datasourceTemplate": "docker",
       "versioningTemplate": "loose"
     },
@@ -48,7 +48,7 @@
       "matchStrings": [
         "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>\\d+\\.\\d+\\.\\d+-runtime-ubuntu\\d+\\.\\d+)"
       ],
-      "depNameTemplate": "{{repo}}/{{image}}-runtime-ubuntu",
+      "depNameTemplate": "{{repo}}/{{image}}",
       "datasourceTemplate": "docker",
       "versioningTemplate": "loose"
     },
@@ -60,7 +60,7 @@
       "matchStrings": [
         "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>v\\d+\\.\\d+\\.\\d+-ubuntu\\d+\\.\\d+)"
       ],
-      "depNameTemplate": "{{repo}}/{{image}}-v-ubuntu",
+      "depNameTemplate": "{{repo}}/{{image}}",
       "datasourceTemplate": "docker",
       "versioningTemplate": "loose"
     },
@@ -72,7 +72,7 @@
       "matchStrings": [
         "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>\\d+\\.\\d+\\.\\d+-\\d+\\.\\d+\\.\\d+-ubuntu\\d+\\.\\d+)"
       ],
-      "depNameTemplate": "{{repo}}/{{image}}-double-ubuntu",
+      "depNameTemplate": "{{repo}}/{{image}}",
       "datasourceTemplate": "docker",
       "versioningTemplate": "loose"
     },
@@ -84,7 +84,7 @@
       "matchStrings": [
         "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>v\\d+\\.\\d+\\.\\d+)"
       ],
-      "depNameTemplate": "{{repo}}/{{image}}-v",
+      "depNameTemplate": "{{repo}}/{{image}}",
       "datasourceTemplate": "docker",
       "versioningTemplate": "loose"
     },
@@ -96,7 +96,7 @@
       "matchStrings": [
         "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>\\d+\\.\\d+\\.\\d+)"
       ],
-      "depNameTemplate": "{{repo}}/{{image}}-simple",
+      "depNameTemplate": "{{repo}}/{{image}}",
       "datasourceTemplate": "docker",
       "versioningTemplate": "loose"
     }
