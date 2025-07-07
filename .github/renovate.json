@@ -34,15 +34,69 @@
         "deployments/gpu-operator/values.yaml"
       ],
       "matchStrings": [
-        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>\\d+\\.\\d+\\.\\d+-base-ubi\\d+)",
-        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>v\\d+\\.\\d+\\.\\d+-ubuntu\\d+\\.\\d+)",
-        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>\\d+\\.\\d+\\.\\d+-\\d+\\.\\d+\\.\\d+-ubuntu\\d+\\.\\d+)", 
-        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>v\\d+\\.\\d+\\.\\d+)",
-        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>v\\d+\\.\\d+\\.\\d+-ubuntu\\d+\\.\\d+)",
-        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>\\d+\\.\\d+\\.\\d+)",
-        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>v\\d+\\.\\d+)"
+        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>\\d+\\.\\d+\\.\\d+-base-ubi\\d+)"
       ],
-      "depNameTemplate": "{{repo}}/{{image}}",
+      "depNameTemplate": "{{repo}}/{{image}}-base-ubi",
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "loose"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "deployments/gpu-operator/values.yaml"
+      ],
+      "matchStrings": [
+        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>\\d+\\.\\d+\\.\\d+-runtime-ubuntu\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "{{repo}}/{{image}}-runtime-ubuntu",
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "loose"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "deployments/gpu-operator/values.yaml"
+      ],
+      "matchStrings": [
+        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>v\\d+\\.\\d+\\.\\d+-ubuntu\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "{{repo}}/{{image}}-v-ubuntu",
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "loose"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "deployments/gpu-operator/values.yaml"
+      ],
+      "matchStrings": [
+        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>\\d+\\.\\d+\\.\\d+-\\d+\\.\\d+\\.\\d+-ubuntu\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "{{repo}}/{{image}}-double-ubuntu",
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "loose"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "deployments/gpu-operator/values.yaml"
+      ],
+      "matchStrings": [
+        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>v\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "{{repo}}/{{image}}-v",
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "loose"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "deployments/gpu-operator/values.yaml"
+      ],
+      "matchStrings": [
+        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "{{repo}}/{{image}}-simple",
       "datasourceTemplate": "docker",
       "versioningTemplate": "loose"
     }
