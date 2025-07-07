@@ -38,8 +38,7 @@
       ],
       "depNameTemplate": "{{repo}}/{{image}}",
       "datasourceTemplate": "docker",
-      "versioningTemplate": "semver",
-      "extractVersion": "{{currentValue}}"
+      "versioningTemplate": "semver"
     }
   ],
   "packageRules": [
