@@ -1,5 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": {
+    "DIST": "rhel9.4"
+  },
   "prHourlyLimit": 30,
   "prConcurrentLimit": 30,
   "dependencyDashboard": false,
@@ -34,9 +37,7 @@
         "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
       ],
       "matchStrings": [
-        "[-\\s]*value:\\s*\"?(?<depName>[^:\"]+)(?::(?<currentValue>[^@\"]+))?@(?<currentDigest>sha256:[a-f0-9]{64})\"?",
-        "[-\\s]*image: (?<depName>.*?)(?::(?<currentValue>.*?))?@(?<currentDigest>sha256:[a-f0-9]{64})",
-        "- name: (?<suffix>[\\w-]+)[-\\s]*image: (?<depName>.*?)(?::(?<currentValue>.*?))?@(?<currentDigest>sha256:[a-f0-9]{64})"
+        "(?m)^- name: driver-550\\s*.*?^\\s*image: (?<depName>[^\\s@]+)@(?<currentValue>sha256:[a-f0-9]{64})"
       ],
       "versioningTemplate": "{{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}",
       "datasourceTemplate": "docker"
@@ -44,12 +45,9 @@
   ],
   "packageRules": [
     {
-      "groupName": "bump all nvcr packages, skip driver",
-      "matchPackageNames": ["/.*/"]
-    },
-    {
-      "matchPackageNames": ["nvcr.io/nvidia/driver"],
-      "enabled": false
+      "groupName": "bump all nvcr packages",
+      "matchPackageNames": ["/.*/"],
+      "allowedVersions": "^550.*-{{DIST}}$"
     }
   ]
 }
