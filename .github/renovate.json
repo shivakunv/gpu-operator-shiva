@@ -44,7 +44,11 @@
   "packageRules": [
     {
       "groupName": "bump all nvcr packages, skip driver",
-      "matchPackageNames": ["/.*/"]
+      "matchPackageNames": ["/.*/"],
+      "groupSlug": "base-image",
+      "group": {
+        "semanticCommits": false
+      }
     },
     {
       "matchPackageNames": ["nvcr.io/nvidia/driver"],
