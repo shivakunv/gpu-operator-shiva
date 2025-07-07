@@ -34,7 +34,13 @@
         "deployments/gpu-operator/values.yaml"
       ],
       "matchStrings": [
-        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>[^\\s#]+)"
+        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>\\d+\\.\\d+\\.\\d+-base-ubi\\d+)",
+        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>v\\d+\\.\\d+\\.\\d+-ubuntu\\d+\\.\\d+)",
+        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>\\d+\\.\\d+\\.\\d+-\\d+\\.\\d+\\.\\d+-ubuntu\\d+\\.\\d+)", 
+        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>v\\d+\\.\\d+\\.\\d+)",
+        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>v\\d+\\.\\d+\\.\\d+-ubuntu\\d+\\.\\d+)",
+        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>\\d+\\.\\d+\\.\\d+)",
+        "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>v\\d+\\.\\d+)"
       ],
       "depNameTemplate": "{{repo}}/{{image}}",
       "datasourceTemplate": "docker",
