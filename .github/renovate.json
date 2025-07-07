@@ -34,17 +34,17 @@
         "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
       ],
       "matchStrings": [
-        "[-\\s]*name: driver-image-550[-\\s]*image: (?<deName>[^\\s@]+)@(?<currentValue>sha256:[a-f0-9]{64})"
+        "[-\\s]*name: driver-image-550[-\\s]*image: (?<depName>[^\\s@]+)@(?<currentValue>sha256:[a-f0-9]{64})"
       ],
-      "versioningTemplate": "{{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}",
-      "datasourceTemplate": "docker"
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "docker"
     }
   ],
   "packageRules": [
     {
       "groupName": "bump all nvcr packages",
       "matchPackageNames": ["/.*/"],
-      "allowedVersions": "^550.*-rhel9\\.4$"
+      "allowedVersions": "^550.*-{{RENOVATE_DIST}}$"
     }
   ]
 }
