@@ -1,8 +1,5 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": {
-    "DIST": "rhel9.4"
-  },
   "prHourlyLimit": 30,
   "prConcurrentLimit": 30,
   "dependencyDashboard": false,
@@ -47,7 +44,7 @@
     {
       "groupName": "bump all nvcr packages",
       "matchPackageNames": ["/.*/"],
-      "allowedVersions": "^550.*-{{DIST}}$"
+      "allowedVersions": "^550.*-{{RENOVATE_DIST}}$"
     }
   ]
 }
