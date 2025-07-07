@@ -211,7 +211,7 @@ spec:
     - name: driver-image
       image: nvcr.io/nvidia/driver@sha256:6729c252a8877f29a1e5e336b945efa5126ea555db3c83b06e2e3d9843e647c7
     - name: driver-image-550
-      image: nvcr.io/nvidia/driver:550.163.01-rhel9.4@sha256:8b89435d54a2e6a33c480dd0659e9a4a73f872a6187f9f9eadd934ecb45ac273
+      image: nvcr.io/nvidia/driver:550.163.01-rhel9.4@sha256:6fe74322562c726c8fade184d8c45ebae3da7b1ea0a21f0ff9dc42c66c65e692
     - name: driver-image-535
       image: nvcr.io/nvidia/driver@sha256:5bc9bf943a6240853f3effecbc7ec9ebdfe98fba40ad9a0dc2aab9bf519c9a10
     - name: device-plugin-image
