@@ -37,7 +37,9 @@
         "[-\\s]*repository: (?<repo>\\S+)(?:\\s*#.*)?[-\\s]*image: (?<image>\\S+)(?:\\s*#.*)?[-\\s]*version: (?<currentValue>[^\\s#]+)(?:\\s*#.*)?"
       ],
       "depNameTemplate": "{{repo}}/{{image}}",
-      "datasourceTemplate": "docker"
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "semver",
+      "extractVersion": "{{currentValue}}"
     }
   ],
   "packageRules": [
