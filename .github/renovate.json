@@ -38,7 +38,7 @@
       ],
       "depNameTemplate": "{{repo}}/{{image}}",
       "datasourceTemplate": "docker",
-      "versioningTemplate": "loose"
+      "versioningTemplate": "regex"
     }
   ],
   "packageRules": [
