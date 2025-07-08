@@ -47,6 +47,7 @@
         "nvcr.io/nvidia/cloud-native/dcgm",
         "nvcr.io/nvidia/k8s/dcgm-exporter"
       ],
+      "versioning": "regex",
       "allowedVersions": "^\\d+\\.\\d+\\.\\d+(-[\\w.-]+)?-ubuntu\\d+\\.\\d+$",
       "group": {
         "groupName": "bump all nvcr packages, skip driver",
@@ -58,6 +59,7 @@
       "matchPackageNames": [
         "nvcr.io/nvidia/cuda"
       ],
+      "versioning": "regex",
       "allowedVersions": "^\\d+\\.\\d+\\.\\d+-base-ubi9$",
       "group": {
         "groupName": "bump all nvcr packages, skip driver",
@@ -74,6 +76,7 @@
         "nvcr.io/nvidia/kubevirt-gpu-device-plugin",
         "nvcr.io/nvidia/k8s-device-plugin"
       ],
+      "versioning": "regex",
       "allowedVersions": "^v\\d+\\.\\d+\\.\\d+$",
       "group": {
         "groupName": "bump all nvcr packages, skip driver",
@@ -86,6 +89,7 @@
         "nvcr.io/nvidia/k8s/container-toolkit",
         "nvcr.io/nvidia/cloud-native/k8s-mig-manager"
       ],
+      "versioning": "regex",
       "allowedVersions": "^v\\d+\\.\\d+\\.\\d+-ubuntu\\d+\\.\\d+$",
       "group": {
         "groupName": "bump all nvcr packages, skip driver",
@@ -97,6 +101,7 @@
       "matchPackageNames": [
         "nvcr.io/nvidia/cloud-native/nvidia-fs"
       ],
+      "versioning": "regex",
       "allowedVersions": "^\\d+\\.\\d+\\.\\d+$",
       "group": {
         "groupName": "bump all nvcr packages, skip driver",
@@ -108,6 +113,7 @@
       "matchPackageNames": [
         "nvcr.io/nvidia/cloud-native/gdrdrv"
       ],
+      "versioning": "regex",
       "allowedVersions": "^v\\d+\\.\\d+(\\.\\d+)?$",
       "group": {
         "groupName": "bump all nvcr packages, skip driver",
