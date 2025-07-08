@@ -52,8 +52,7 @@
         "groupName": "bump all nvcr packages, skip driver",
         "separateMinorPatch": false
       },
-      "separateMajorMinor": false,
-      "separatePatch": false
+      "separateMajorMinor": false
     },
     {
       "matchPackageNames": [
@@ -64,8 +63,7 @@
         "groupName": "bump all nvcr packages, skip driver",
         "separateMinorPatch": false
       },
-      "separateMajorMinor": false,
-      "separatePatch": false
+      "separateMajorMinor": false
     },
     {
       "matchPackageNames": [
@@ -81,8 +79,7 @@
         "groupName": "bump all nvcr packages, skip driver",
         "separateMinorPatch": false
       },
-      "separateMajorMinor": false,
-      "separatePatch": false
+      "separateMajorMinor": false
     },
     {
       "matchPackageNames": [
@@ -94,8 +91,7 @@
         "groupName": "bump all nvcr packages, skip driver",
         "separateMinorPatch": false
       },
-      "separateMajorMinor": false,
-      "separatePatch": false
+      "separateMajorMinor": false
     },
     {
       "matchPackageNames": [
@@ -106,8 +102,7 @@
         "groupName": "bump all nvcr packages, skip driver",
         "separateMinorPatch": false
       },
-      "separateMajorMinor": false,
-      "separatePatch": false
+      "separateMajorMinor": false
     },
     {
       "matchPackageNames": [
@@ -118,8 +113,7 @@
         "groupName": "bump all nvcr packages, skip driver",
         "separateMinorPatch": false
       },
-      "separateMajorMinor": false,
-      "separatePatch": false
+      "separateMajorMinor": false
     },
     {
       "matchPackageNames": ["nvcr.io/nvidia/driver"],
