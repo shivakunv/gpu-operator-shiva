@@ -36,7 +36,7 @@
       "matchStrings": [
         "[-\\*]repository:\\s*nvcr\\.io/nvidia\\s*\\n(?:\\s*#.*\\n|\\s*\\n)[-\\*]image:\\s*dcgm-exporter\\s*\\n(?:\\s*#.*\\n|\\s*\\n)[-\\*]version:\\s*(?<currentValue>\\S+)"
       ],
-      "depName": "nvcr.io/nvidia/k8s/dcgm-exporter",
+      "depNameTemplate": "nvcr.io/nvidia/k8s/dcgm-exporter",
       "datasourceTemplate": "docker",
       "versioningTemplate": "loose"
     }
