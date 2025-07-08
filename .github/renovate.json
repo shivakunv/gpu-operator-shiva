@@ -48,7 +48,10 @@
         "nvcr.io/nvidia/k8s/dcgm-exporter"
       ],
       "allowedVersions": "^\\d+\\.\\d+\\.\\d+(-[\\w.-]+)?-ubuntu\\d+\\.\\d+$",
-      "groupName": "bump all nvcr packages, skip driver",
+      "group": {
+        "groupName": "bump all nvcr packages, skip driver",
+        "separateMinorPatch": false
+      },
       "separateMajorMinor": false,
       "separatePatch": false
     },
@@ -57,7 +60,10 @@
         "nvcr.io/nvidia/cuda"
       ],
       "allowedVersions": "^\\d+\\.\\d+\\.\\d+-base-ubi9$",
-      "groupName": "bump all nvcr packages, skip driver",
+      "group": {
+        "groupName": "bump all nvcr packages, skip driver",
+        "separateMinorPatch": false
+      },
       "separateMajorMinor": false,
       "separatePatch": false
     },
@@ -71,7 +77,10 @@
         "nvcr.io/nvidia/k8s-device-plugin"
       ],
       "allowedVersions": "^v\\d+\\.\\d+\\.\\d+$",
-      "groupName": "bump all nvcr packages, skip driver",
+      "group": {
+        "groupName": "bump all nvcr packages, skip driver",
+        "separateMinorPatch": false
+      },
       "separateMajorMinor": false,
       "separatePatch": false
     },
@@ -81,7 +90,10 @@
         "nvcr.io/nvidia/cloud-native/k8s-mig-manager"
       ],
       "allowedVersions": "^v\\d+\\.\\d+\\.\\d+-ubuntu\\d+\\.\\d+$",
-      "groupName": "bump all nvcr packages, skip driver",
+      "group": {
+        "groupName": "bump all nvcr packages, skip driver",
+        "separateMinorPatch": false
+      },
       "separateMajorMinor": false,
       "separatePatch": false
     },
@@ -90,7 +102,10 @@
         "nvcr.io/nvidia/cloud-native/nvidia-fs"
       ],
       "allowedVersions": "^\\d+\\.\\d+\\.\\d+$",
-      "groupName": "bump all nvcr packages, skip driver",
+      "group": {
+        "groupName": "bump all nvcr packages, skip driver",
+        "separateMinorPatch": false
+      },
       "separateMajorMinor": false,
       "separatePatch": false
     },
@@ -99,7 +114,10 @@
         "nvcr.io/nvidia/cloud-native/gdrdrv"
       ],
       "allowedVersions": "^v\\d+\\.\\d+(\\.\\d+)?$",
-      "groupName": "bump all nvcr packages, skip driver",
+      "group": {
+        "groupName": "bump all nvcr packages, skip driver",
+        "separateMinorPatch": false
+      },
       "separateMajorMinor": false,
       "separatePatch": false
     },
