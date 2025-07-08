@@ -47,6 +47,8 @@
         "nvcr.io/nvidia/cloud-native/dcgm",
         "nvcr.io/nvidia/k8s/dcgm-exporter"
       ],
+      "versioning": "regex",
+      "allowedVersions": "^\\d+\\.\\d+\\.\\d+(-[\\w.-]+)?-ubuntu\\d+\\.\\d+$",
       "group": {
         "groupName": "bump all nvcr packages, skip driver",
         "separateMinorPatch": false
