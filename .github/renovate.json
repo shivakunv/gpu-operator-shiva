@@ -34,9 +34,9 @@
         "deployments/gpu-operator/values.yaml"
       ],
       "matchStrings": [
-        "[-\\*]repository:\\s*nvcr\\.io/nvidia\\s*\\n(?:\\s*#.*\\n|\\s*\\n)[-\\*]image:\\s*dcgm-exporter\\s*\\n(?:\\s*#.*\\n|\\s*\\n)[-\\*]version:\\s*(?<currentValue>\\S+)"
+       "[-\\s]*repository:\\s*(?<repo>\\S+)\\s*\\n(?:\\s*#.*\\n|\\s*\\n)[-\\s]*image:\\s*(?<image>\\S+)\\s*\\n(?:\\s*#.*\\n|\\s*\\n)[-\\s]*version:\\s*(?<currentValue>\\S+)"
       ],
-      "depNameTemplate": "nvcr.io/nvidia/k8s/dcgm-exporter",
+      "depNameTemplate": "{{repo}}/{{image}}",
       "datasourceTemplate": "docker",
       "versioningTemplate": "loose"
     }
