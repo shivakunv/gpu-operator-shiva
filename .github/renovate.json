@@ -34,25 +34,13 @@
         "deployments/gpu-operator/values.yaml"
       ],
       "matchStrings": [
-        "[-\\s]*repository: (?<repo>\\S+)[ \\t]*\\n(?:\\s*#.*\\n|\\s*\\n)*[-\\s]*image: (?<image>\\S+)[ \\t]*\\n(?:\\s*#.*\\n|\\s*\\n)*[-\\s]*version: (?<currentValue>\\S+)"
+        "[-\\s]*repository: nvcr.io/nvidia/k8s/dcgm-exporter[-\\s]*image: dcgm-exporter[-\\s]*version: (?<currentValue>\\S+)"
       ],
-      "depNameTemplate": "{{repo}}/{{image}}",
       "datasourceTemplate": "docker",
       "versioningTemplate": "loose"
     }
   ],
   "packageRules": [
-    {
-      "matchPackageNames": [
-        "nvcr.io/nvidia/cloud-native/dcgm",
-        "nvcr.io/nvidia/k8s/dcgm-exporter"
-      ],
-      "allowedVersions": "^\\d+\\.\\d+\\.\\d+(?:-[\\w.]+)*-ubuntu\\d+\\.\\d+$",
-      "group": {
-        "groupName": "bump all nvcr packages, skip driver",
-        "separateMinorPatch": false
-      }
-    },
     {
       "matchPackageNames": ["nvcr.io/nvidia/driver"],
       "enabled": false
