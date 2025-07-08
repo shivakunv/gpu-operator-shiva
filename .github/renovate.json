@@ -34,7 +34,7 @@
         "deployments/gpu-operator/values.yaml"
       ],
       "matchStrings": [
-        "-\\s*repository:\\s*(?<repo>\\S+)(?:\\s*\\n[^\\S\\n]*#.*|\\s*\\n)*\\s*image:\\s*(?<image>\\S+)(?:\\s*\\n[^\\S\\n]*#.*|\\s*\\n)*\\s*version:\\s*(?<currentValue>\\S+)"
+        "-\\s*repository:\\s*(?<repo>\\S+)(?:\\n\\s*#.*|\\n\\s*)*\\s*image:\\s*(?<image>\\S+)(?:\\n\\s*#.*|\\n\\s*)*\\s*version:\\s*(?<currentValue>\\S+)"
       ],
       "depNameTemplate": "{{repo}}/{{image}}",
       "datasourceTemplate": "docker",
