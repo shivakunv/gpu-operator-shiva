@@ -38,7 +38,7 @@
       ],
       "depNameTemplate": "{{repo}}/{{image}}",
       "datasourceTemplate": "docker",
-      "versioningTemplate": "docker"
+      "versioningTemplate": "regex"
     }
   ],
   "packageRules": [
@@ -47,7 +47,7 @@
         "nvcr.io/nvidia/cloud-native/dcgm",
         "nvcr.io/nvidia/k8s/dcgm-exporter"
       ],
-      "versioning": "docker",
+      "versioning": "regex",
       "allowedVersions": "^\\d+\\.\\d+\\.\\d+(-[\\w.-]+)?-ubuntu\\d+\\.\\d+$",
       "group": {
         "groupName": "bump all nvcr packages, skip driver",
