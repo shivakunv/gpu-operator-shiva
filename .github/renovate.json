@@ -46,8 +46,7 @@
       "matchPackageNames": [
         "nvcr.io/nvidia/k8s-device-plugin"
       ],
-      "versioning": "regex",
-      "allowedVersions": "^v\\d+\\.\\d+\\.\\d+$",
+      "versioning": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
       "separateMajorMinor": false
     },
     {
