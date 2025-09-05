@@ -85,6 +85,11 @@
     {
       "matchPackageNames": ["nvcr.io/nvidia/driver"],
       "enabled": false
+    },
+    {
+      "matchDatasources": ["docker"],
+      "groupName": "docker image version + digest",
+      "matchUpdateTypes": ["major", "minor", "patch", "digest"]
     }
   ]
 }
