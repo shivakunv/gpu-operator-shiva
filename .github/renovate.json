@@ -116,6 +116,10 @@
        "nvcr.io/nvidia/cuda"
 
       ],
+      "groupName": "version + digest",
+      "matchUpdateTypes": ["major", "minor", "patch", "digest"],
+      "separateMinorPatch": false,
+      "separateMultipleMajor": false,
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-base-ubi9$"
     },
     {
