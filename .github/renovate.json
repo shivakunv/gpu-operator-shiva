@@ -122,7 +122,9 @@
     },
     {
       "matchDatasources": ["docker"],
-      "groupNameTemplate": "{{depName}} (version + digest)"
+      "groupName": "version + digest",
+      "separateMultipleMajor": false,
+      "separateMinorPatch": false
     }
   ]
 }
