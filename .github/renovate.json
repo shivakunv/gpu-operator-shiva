@@ -121,8 +121,7 @@
     },
     {
       "groupName": "version + digest",
-      "matchUpdateTypes": ["major", "minor", "patch", "digest"],
-      "separateMinorPatch": false
+      "matchUpdateTypes": ["major", "minor", "patch", "digest"]
     }
   ]
 }
