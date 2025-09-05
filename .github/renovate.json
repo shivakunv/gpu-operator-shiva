@@ -25,8 +25,6 @@
   "ignorePaths": ["vendor/**"],
   "enabledManagers": ["custom.regex"],
   "recreateWhen": "always",
-  "separateMultipleMajor": false,
-  "separateMinorPatch": false,
   "customManagers": [
     {
       "customType": "regex",
@@ -124,7 +122,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "groupName": "docker image version + digest",
+      "groupNameTemplate": "{{depName}} (version + digest)",
       "matchUpdateTypes": ["major", "minor", "patch", "digest"]
     }
   ]
