@@ -120,7 +120,6 @@
       "enabled": false
     },
     {
-      "separateMajorMinor": false,
       "separateMultipleMajor": false
     }
   ]
