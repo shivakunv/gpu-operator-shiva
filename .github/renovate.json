@@ -120,7 +120,7 @@
       "groupName": "version + digest",
       "separateMinorPatch": false,
       "separateMultipleMajor": false,
-      "versioning": [
+      "versioningTemplate": [
         "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-base-ubi9$",
         "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ubuntu(?<ubuntu>\\d+\\.\\d+)$"]
     },
