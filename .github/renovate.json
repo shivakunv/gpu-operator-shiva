@@ -110,8 +110,9 @@
       "versioning": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ubuntu(?<ubuntu>\\d+\\.\\d+)$"
     },
     {
-      "matchPaths": ["deployments/gpu-operator/values.yaml",
-      "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"],
+      "matchPaths": [
+        "deployments/gpu-operator/values.yaml",
+        "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"],
       "matchPackageNames": [
        "nvcr.io/nvidia/cuda"
 
@@ -119,7 +120,9 @@
       "groupName": "version + digest",
       "separateMinorPatch": false,
       "separateMultipleMajor": false,
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-base-ubi9$"
+      "versioning": [
+        "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-base-ubi9$",
+        "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ubuntu(?<ubuntu>\\d+\\.\\d+)$"]
     },
     {
       "matchPackageNames": ["nvcr.io/nvidia/driver"],
