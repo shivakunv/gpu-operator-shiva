@@ -118,6 +118,11 @@
     {
       "matchPackageNames": ["nvcr.io/nvidia/driver"],
       "enabled": false
+    },
+    {
+      "groupName": "version + digest",
+      "matchUpdateTypes": ["major", "minor", "patch", "digest"],
+      "separateMinorPatch": false
     }
   ]
 }
