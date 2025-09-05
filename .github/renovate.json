@@ -111,22 +111,17 @@
     },
     {
       "matchPaths": [
-        "deployments/gpu-operator/values.yaml",
-        "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"],
-      "matchPackageNames": [
-       "nvcr.io/nvidia/cuda"
-
-      ],
-      "groupName": "version + digest",
-      "separateMinorPatch": false,
-      "separateMultipleMajor": false,
-      "versioningTemplate": [
-        "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-base-ubi9$",
-        "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ubuntu(?<ubuntu>\\d+\\.\\d+)$"]
+      "deployments/gpu-operator/values.yaml"],
+      "matchPackageNames":        "nvcr.io/nvidia/cuda",
+      "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-base-ubi9$"
     },
     {
       "matchPackageNames": ["nvcr.io/nvidia/driver"],
       "enabled": false
+    },
+    {
+      "separateMajorMinor": false,
+      "separateMultipleMajor": false
     }
   ]
 }
