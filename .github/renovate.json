@@ -121,9 +121,6 @@
     {
       "matchPackageNames": ["nvcr.io/nvidia/driver"],
       "enabled": false
-    },
-    {
-      "separateMinorPatch": false
     }
   ]
 }
