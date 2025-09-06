@@ -30,7 +30,7 @@
   "customManagers": [
     {
       "customType": "regex",
-      "matchingStringsStrategy": "combination",
+      "matchStringsStrategy": "combination",
       "managerFilePatterns": [
         "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
       ],
@@ -44,7 +44,7 @@
     },
     {
       "customType": "regex",
-      "matchingStringsStrategy": "combination",
+      "matchStringsStrategy": "combination",
       "managerFilePatterns": [
         "deployments/gpu-operator/values.yaml"
       ],
