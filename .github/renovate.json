@@ -93,7 +93,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "groupName": "docker updates (tag+digest)",
+      "groupName": "docker updates (tag+digest)"
     }
   ]
 }
