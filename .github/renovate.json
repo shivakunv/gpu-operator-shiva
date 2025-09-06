@@ -91,7 +91,7 @@
     },
     {
       "matchDatasources": ["*"],
-      "groupName": "{{depName}} docker updates"
+      "groupName": "{{depName}}"
     }
   ]
 }
