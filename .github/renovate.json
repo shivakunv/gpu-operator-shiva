@@ -44,7 +44,6 @@
     },
     {
       "customType": "regex",
-      "matchStringsStrategy": "combination",
       "managerFilePatterns": [
         "deployments/gpu-operator/values.yaml"
       ],
