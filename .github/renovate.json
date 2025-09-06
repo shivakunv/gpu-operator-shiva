@@ -92,7 +92,7 @@
     },
     {
       "matchDatasources": ["*"],
-      "groupName": "docker updates ( tag + digest )"
+      "groupName": "{{depName}} docker updates"
     }
   ]
 }
