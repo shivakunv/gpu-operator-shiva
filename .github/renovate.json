@@ -25,6 +25,7 @@
   "ignorePaths": ["vendor/**"],
   "enabledManagers": ["custom.regex"],
   "recreateWhen": "always",
+  "semanticCommits": "enabled",
   "customManagers": [
     {
       "customType": "regex",
@@ -118,10 +119,6 @@
     {
       "matchPackageNames": ["nvcr.io/nvidia/driver"],
       "enabled": false
-    },
-    {
-      "groupName": "version + digest",
-      "matchUpdateTypes": ["major", "minor", "patch", "digest"]
     }
   ]
 }
