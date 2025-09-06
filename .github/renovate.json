@@ -92,8 +92,8 @@
       "enabled": false
     },
     {
-      "matchDatasources": ["docker"],
-      "groupName": "docker updates (tag+digest)"
+      "matchDatasources": ["*"],
+      "groupName": "docker updates ( tag + digest )"
     }
   ]
 }
