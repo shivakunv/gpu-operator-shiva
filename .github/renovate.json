@@ -93,7 +93,7 @@
     {
       "matchDatasources": ["docker"],
       "pinDigests": true,
-      "digest": "false",
+      "digest": false,
       "groupName": "{{depName}} (tag+digest)"
     },
     {
