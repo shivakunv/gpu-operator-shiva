@@ -13,7 +13,8 @@ psa:
   enabled: false
 
 cdi:
-  enabled: true
+  enabled: false
+  default: false
 
 sandboxWorkloads:
   enabled: false
@@ -49,8 +50,8 @@ daemonsets:
     maxUnavailable: "1"
 
 validator:
-  repository: nvcr.io/nvidia
-  image: gpu-operator
+  repository: nvcr.io/nvidia/cloud-native
+  image: gpu-operator-validator
   # If version is not specified, then default is to use chart.AppVersion
   #version: ""
   imagePullPolicy: IfNotPresent
@@ -59,7 +60,9 @@ validator:
   args: []
   resources: {}
   plugin:
-    env: []
+    env:
+      - name: WITH_WORKLOAD
+        value: "false"
 
 operator:
   repository: nvcr.io/nvidia
@@ -77,9 +80,9 @@ operator:
   # to be passed during helm upgrade.
   upgradeCRD: true
   initContainer:
-    repository: nvcr.io/nvidia
     image: cuda
-    version: 13.0.1-base-ubi9
+    repository: nvcr.io/nvidia
+    version: 12.8.0-base-ubi9
     imagePullPolicy: IfNotPresent
   tolerations:
   - key: "node-role.kubernetes.io/master"
@@ -143,7 +146,7 @@ driver:
   usePrecompiled: false
   repository: nvcr.io/nvidia
   image: driver
-  version: "580.82.07"
+  version: "570.124.06"
   imagePullPolicy: IfNotPresent
   imagePullSecrets: []
   startupProbe:
@@ -189,13 +192,25 @@ driver:
       timeoutSeconds: 300
       deleteEmptyDir: false
   manager:
-    repository: nvcr.io/nvidia/cloud-native
     image: k8s-driver-manager
+    repository: nvcr.io/nvidia/cloud-native
     # When choosing a different version of k8s-driver-manager, DO NOT downgrade to a version lower than v0.6.4
     # to ensure k8s-driver-manager stays compatible with gpu-operator starting from v24.3.0
-    version: v0.8.1
+    version: v0.8.0
     imagePullPolicy: IfNotPresent
-    env: []
+    env:
+      - name: ENABLE_GPU_POD_EVICTION
+        value: "true"
+      - name: ENABLE_AUTO_DRAIN
+        value: "false"
+      - name: DRAIN_USE_FORCE
+        value: "false"
+      - name: DRAIN_POD_SELECTOR_LABEL
+        value: ""
+      - name: DRAIN_TIMEOUT_SECONDS
+        value: "0s"
+      - name: DRAIN_DELETE_EMPTYDIR_DATA
+        value: "false"
   env: []
   resources: {}
   # Private mirror repository configuration
@@ -214,14 +229,12 @@ driver:
   # kernel module configuration for NVIDIA driver
   kernelModuleConfig:
     name: ""
-  # Name of Kubernetes Secret which contains secrets to be passed in as environment variables
-  secretEnv: ""
 
 toolkit:
   enabled: true
   repository: nvcr.io/nvidia/k8s
   image: container-toolkit
-  version: v1.17.8-ubuntu20.04
+  version: v1.17.5-ubuntu20.04
   imagePullPolicy: IfNotPresent
   imagePullSecrets: []
   env: []
@@ -232,11 +245,23 @@ devicePlugin:
   enabled: true
   repository: nvcr.io/nvidia
   image: k8s-device-plugin
-  version: v0.17.4
+  version: v0.17.0
   imagePullPolicy: IfNotPresent
   imagePullSecrets: []
   args: []
-  env: []
+  env:
+    - name: PASS_DEVICE_SPECS
+      value: "true"
+    - name: FAIL_ON_INIT_ERROR
+      value: "true"
+    - name: DEVICE_LIST_STRATEGY
+      value: envvar
+    - name: DEVICE_ID_STRATEGY
+      value: uuid
+    - name: NVIDIA_VISIBLE_DEVICES
+      value: all
+    - name: NVIDIA_DRIVER_CAPABILITIES
+      value: all
   resources: {}
   # Plugin configuration
   # Use "name" to either point to an existing ConfigMap or to create a new one with a list of configurations(i.e with create=true).
@@ -278,7 +303,7 @@ dcgm:
   enabled: false
   repository: nvcr.io/nvidia/cloud-native
   image: dcgm
-  version: 4.4.1-2-ubuntu22.04
+  version: 4.1.1-1-ubuntu22.04
   imagePullPolicy: IfNotPresent
   args: []
   env: []
@@ -288,12 +313,16 @@ dcgmExporter:
   enabled: true
   repository: nvcr.io/nvidia/k8s
   image: dcgm-exporter
-  version: 4.4.1-4.5.2-ubuntu22.04
+  version: 4.1.1-4.0.4-ubuntu22.04
   imagePullPolicy: IfNotPresent
-  env: []
+  env:
+    - name: DCGM_EXPORTER_LISTEN
+      value: ":9400"
+    - name: DCGM_EXPORTER_KUBERNETES
+      value: "true"
+    - name: DCGM_EXPORTER_COLLECTORS
+      value: "/etc/dcgm-exporter/dcp-metrics-included.csv"
   resources: {}
-  service:
-    internalTrafficPolicy: Cluster
   serviceMonitor:
     enabled: false
     interval: 15s
@@ -330,20 +359,26 @@ gfd:
   enabled: true
   repository: nvcr.io/nvidia
   image: k8s-device-plugin
-  version: v0.17.4
+  version: v0.17.0
   imagePullPolicy: IfNotPresent
   imagePullSecrets: []
-  env: []
+  env:
+    - name: GFD_SLEEP_INTERVAL
+      value: 60s
+    - name: GFD_FAIL_ON_INIT_ERROR
+      value: "true"
   resources: {}
 
 migManager:
   enabled: true
   repository: nvcr.io/nvidia/cloud-native
   image: k8s-mig-manager
-  version: v0.12.3-ubuntu20.04
+  version: v0.11.0-ubuntu20.04
   imagePullPolicy: IfNotPresent
   imagePullSecrets: []
-  env: []
+  env:
+    - name: WITH_REBOOT
+      value: "false"
   resources: {}
   # MIG configuration
   # Use "name" to either point to an existing ConfigMap or to create a new one with a list of configurations(i.e with create=true).
@@ -389,8 +424,8 @@ migManager:
 
 nodeStatusExporter:
   enabled: false
-  repository: nvcr.io/nvidia
-  image: gpu-operator
+  repository: nvcr.io/nvidia/cloud-native
+  image: gpu-operator-validator
   # If version is not specified, then default is to use chart.AppVersion
   #version: ""
   imagePullPolicy: IfNotPresent
@@ -401,7 +436,7 @@ gds:
   enabled: false
   repository: nvcr.io/nvidia/cloud-native
   image: nvidia-fs
-  version: "2.26.6"
+  version: "2.20.5"
   imagePullPolicy: IfNotPresent
   imagePullSecrets: []
   env: []
@@ -411,7 +446,7 @@ gdrcopy:
   enabled: false
   repository: nvcr.io/nvidia/cloud-native
   image: gdrdrv
-  version: "v2.5.1"
+  version: "v2.4.4"
   imagePullPolicy: IfNotPresent
   imagePullSecrets: []
   env: []
@@ -427,19 +462,23 @@ vgpuManager:
   env: []
   resources: {}
   driverManager:
-    repository: nvcr.io/nvidia/cloud-native
     image: k8s-driver-manager
+    repository: nvcr.io/nvidia/cloud-native
     # When choosing a different version of k8s-driver-manager, DO NOT downgrade to a version lower than v0.6.4
     # to ensure k8s-driver-manager stays compatible with gpu-operator starting from v24.3.0
-    version: v0.8.1
+    version: v0.8.0
     imagePullPolicy: IfNotPresent
-    env: []
+    env:
+      - name: ENABLE_GPU_POD_EVICTION
+        value: "false"
+      - name: ENABLE_AUTO_DRAIN
+        value: "false"
 
 vgpuDeviceManager:
   enabled: true
   repository: nvcr.io/nvidia/cloud-native
   image: vgpu-device-manager
-  version: v0.4.0
+  version: v0.3.0
   imagePullPolicy: IfNotPresent
   imagePullSecrets: []
   env: []
@@ -451,19 +490,23 @@ vfioManager:
   enabled: true
   repository: nvcr.io/nvidia
   image: cuda
-  version: 13.0.1-base-ubi9
+  version: 12.8.0-base-ubi9
   imagePullPolicy: IfNotPresent
   imagePullSecrets: []
   env: []
   resources: {}
   driverManager:
-    repository: nvcr.io/nvidia/cloud-native
     image: k8s-driver-manager
+    repository: nvcr.io/nvidia/cloud-native
     # When choosing a different version of k8s-driver-manager, DO NOT downgrade to a version lower than v0.6.4
     # to ensure k8s-driver-manager stays compatible with gpu-operator starting from v24.3.0
-    version: v0.8.1
+    version: v0.8.0
     imagePullPolicy: IfNotPresent
-    env: []
+    env:
+      - name: ENABLE_GPU_POD_EVICTION
+        value: "false"
+      - name: ENABLE_AUTO_DRAIN
+        value: "false"
 
 kataManager:
   enabled: false
@@ -493,7 +536,7 @@ sandboxDevicePlugin:
   enabled: true
   repository: nvcr.io/nvidia
   image: kubevirt-gpu-device-plugin
-  version: v1.4.0
+  version: v1.3.1
   imagePullPolicy: IfNotPresent
   imagePullSecrets: []
   args: []
@@ -514,6 +557,7 @@ ccManager:
   resources: {}
 
 node-feature-discovery:
+  enableNodeFeatureApi: true
   priorityClassName: system-node-critical
   gc:
     enable: true
