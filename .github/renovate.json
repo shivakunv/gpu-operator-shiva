@@ -25,6 +25,7 @@
   "ignorePaths": ["vendor/**"],
   "enabledManagers": ["custom.regex"],
   "recreateWhen": "always",
+  "recreateClosed": true,
   "separateMultipleMajor": false,
   "separateMinorPatch": false,
   "customManagers": [
