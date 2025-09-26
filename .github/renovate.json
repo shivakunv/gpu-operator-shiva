@@ -96,7 +96,7 @@
     {
       "matchDatasources": ["docker"],
       "pinDigests": true,
-      "digest": "patch"
+      "digest": false
     }
   ]
 }
