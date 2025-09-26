@@ -90,13 +90,14 @@
       "enabled": false
     },
     {
-      "matchDatasources": ["*"],
-      "groupName": "{{depName}}"
-    },
-    {
       "matchDatasources": ["docker"],
       "pinDigests": true,
-      "digest": false
+      "digest": false,
+      "groupName": "{{depName}} (tag+digest)"
+    },
+    {
+      "matchDatasources": ["*"],
+      "groupName": "{{depName}}"
     }
   ]
 }
