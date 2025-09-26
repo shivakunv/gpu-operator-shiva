@@ -92,6 +92,13 @@
     {
       "matchDatasources": ["*"],
       "groupName": "{{depName}}"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "digest":{
+        "enabled": true,
+        "update": "tag"
+      }
     }
   ]
 }
