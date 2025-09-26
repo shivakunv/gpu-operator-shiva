@@ -95,10 +95,8 @@
     },
     {
       "matchDatasources": ["docker"],
-      "digest":{
-        "enabled": true,
-        "update": "tag"
-      }
+      "pinDigests": true,
+      "digest": "patch"
     }
   ]
 }
