@@ -95,8 +95,7 @@
       "pinDigests": true,
       "digest": false,
       "groupName": "{{depName}}",
-      "updateTypes": ["digest"]
+      "pruneStaleBranches": true
     }
-  ],
-  "pruneStaleBranches": true
+  ]
 }
