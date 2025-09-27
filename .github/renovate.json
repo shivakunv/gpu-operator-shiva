@@ -91,15 +91,11 @@
       "enabled": false
     },
     {
-      "matchDatasources": ["docker"],
+      "matchDatasources": ["*"],
       "pinDigests": true,
       "digest": false,
       "groupName": "{{depName}}",
       "updateTypes": ["digest"]
-    },
-    {
-      "matchDatasources": ["*"],
-      "groupName": "{{depName}}"
     }
   ],
   "pruneStaleBranches": true
