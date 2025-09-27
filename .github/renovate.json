@@ -101,5 +101,6 @@
       "matchDatasources": ["*"],
       "groupName": "{{depName}}"
     }
-  ]
+  ],
+  "pruneStaleBranches": true
 }
