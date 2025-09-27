@@ -490,7 +490,7 @@ vfioManager:
   enabled: true
   repository: nvcr.io/nvidia
   image: cuda
-  version: 12.8.0-base-ubi9
+  version: 13.0.1-base-ubi9
   imagePullPolicy: IfNotPresent
   imagePullSecrets: []
   env: []
