@@ -28,7 +28,6 @@
   "separateMultipleMajor": false,
   "separateMinorPatch": false,
   "pruneStaleBranches": true,
-  "pruneStalePrs": true,
   "customManagers": [
     {
       "customType": "regex",
