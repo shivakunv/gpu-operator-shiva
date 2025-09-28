@@ -1,8 +1,7 @@
 name: Renovate
 
 on:
-  schedule:
-     - cron: "0 9 * * *" # every day at 9:00 AM UTC
+  workflow_dispatch:
 
 jobs:
   renovate:
@@ -17,5 +16,8 @@ jobs:
           configurationFile: .github/renovate.json
         env:
           RENOVATE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RENOVATE_REPOSITORIES: '["NVIDIA/gpu-operator"]'
+          RENOVATE_REPOSITORIES: '["shivakunv/gpu-operator-shiva"]'
           RENOVATE_ONBOARDING: false
+          RENOVATE_LOG_LEVEL: debug
+          DEBUG: hostRules,config,docker,renovate,regexManagers
+
