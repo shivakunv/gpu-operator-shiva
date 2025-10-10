@@ -27,7 +27,6 @@
   "recreateWhen": "always",
   "separateMultipleMajor": false,
   "separateMinorPatch": false,
-  "pruneStaleBranches": true,
   "customManagers": [
     {
       "customType": "regex",
