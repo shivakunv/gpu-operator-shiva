@@ -31,8 +31,7 @@
         "[-\\s]*repository:\\s*(?<repo>\\S+)\\s*\\n(?:\\s*#.*\\n|\\s*\\n)*[-\\s]*image:\\s*(?<image>\\S+)\\s*\\n(?:\\s*#.*\\n|\\s*\\n)*[-\\s]*version:\\s*(?<currentValue>\\S+)"
       ],
       "depNameTemplate": "{{repo}}/{{image}}",
-      "datasourceTemplate": "docker",
-      "versioning": "loose"
+      "datasourceTemplate": "docker"
     }
   ],
   "packageRules": [
