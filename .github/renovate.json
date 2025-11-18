@@ -19,7 +19,7 @@
       "managerFilePatterns": [
         "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
       ],
-      "depNameTemplate": "{{depName}}",
+      "depNameTemplate": "{{#match depName}}([^:@]+){{/match}}",
       "matchStrings": [
         "[-\\s]*value:\\s*\"?(?<depName>[^:\"]+)(?::(?<currentValue>[^@\"]+))?@(?<currentDigest>sha256:[a-f0-9]{64})\"?",
         "[-\\s]*image: (?<depName>.*?)(?::(?<currentValue>.*?))?@(?<currentDigest>sha256:[a-f0-9]{64})",
@@ -35,7 +35,7 @@
       "matchStrings": [
         "[-\\s]*repository:\\s*(?<repo>\\S+)\\s*\\n(?:\\s*#.*\\n|\\s*\\n)*[-\\s]*image:\\s*(?<image>\\S+)\\s*\\n(?:\\s*#.*\\n|\\s*\\n)*[-\\s]*version:\\s*(?<currentValue>\\S+)"
       ],
-      "depNameTemplate": "{{repo}}/{{image}}",
+      "depNameTemplate": "{{#match repo}}([^:@]+){{/match}}/{{image}}",
       "datasourceTemplate": "docker"
     }
   ],
