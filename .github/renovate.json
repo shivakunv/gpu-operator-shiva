@@ -87,6 +87,14 @@
       "separateMajorMinor": false
     },
     {
+      "matchPaths": ["deployments/gpu-operator/values.yaml"],
+      "matchPackageNames": [
+       "nvcr.io/nvidia/k8s/dcgm-exporter"
+      ],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-distroless$",
+      "separateMajorMinor": false
+    },
+    {
       "matchPackageNames": ["nvcr.io/nvidia/driver"],
       "enabled": false
     },
