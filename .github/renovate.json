@@ -19,11 +19,11 @@
       "managerFilePatterns": [
         "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
       ],
-      "depNameTemplate": "{{#match depName}}([^:@]+){{/match}}",
+      "depNameTemplate": "{{{depName}}}",
       "matchStrings": [
-        "[-\\s]*value:\\s*\"?(?<depName>[^:\"]+)(?::(?<currentValue>[^@\"]+))?@(?<currentDigest>sha256:[a-f0-9]{64})\"?",
-        "[-\\s]*image: (?<depName>.*?)(?::(?<currentValue>.*?))?@(?<currentDigest>sha256:[a-f0-9]{64})",
-        "- name: (?<suffix>[\\w-]+)[-\\s]*image: (?<depName>.*?)(?::(?<currentValue>.*?))?@(?<currentDigest>sha256:[a-f0-9]{64})"
+        "[-\\s]*value:\\s*\"?(?<depName>[^:@\"]+)(?::(?<currentValue>[^@\"]+))?@(?<currentDigest>sha256:[a-f0-9]{64})\"?",
+        "[-\\s]*image: (?<depName>[^:@\"]+)(?::(?<currentValue>[^@\"]+))?@(?<currentDigest>sha256:[a-f0-9]{64})",
+        "- name: (?<suffix>[\\w-]+)[-\\s]*image: (?<depName>[^:@\"]+)(?::(?<currentValue>[^@\"]+))?@(?<currentDigest>sha256:[a-f0-9]{64})"
       ],
       "datasourceTemplate": "docker",
       "extractVersionTemplate": "{{{currentValue}}}",
@@ -33,9 +33,9 @@
       "customType": "regex",
       "managerFilePatterns": ["deployments/gpu-operator/values.yaml"],
       "matchStrings": [
-        "[-\\s]*repository:\\s*(?<repo>\\S+)\\s*\\n(?:\\s*#.*\\n|\\s*\\n)*[-\\s]*image:\\s*(?<image>\\S+)\\s*\\n(?:\\s*#.*\\n|\\s*\\n)*[-\\s]*version:\\s*(?<currentValue>\\S+)"
+        "[-\\s]*repository:\\s*(?<repo>[^:@]+)\\s*\\n(?:\\s*#.*\\n|\\s*\\n)*[-\\s]*image:\\s*(?<image>[^:@]+)\\s*\\n(?:\\s*#.*\\n|\\s*\\n)*[-\\s]*version:\\s*(?<currentValue>\\S+)"
       ],
-      "depNameTemplate": "{{#match repo}}([^:@]+){{/match}}/{{image}}",
+      "depNameTemplate": "{{repo}}/{{image}}",
       "datasourceTemplate": "docker"
     }
   ],
