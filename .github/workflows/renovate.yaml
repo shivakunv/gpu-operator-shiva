@@ -20,6 +20,6 @@ jobs:
           RENOVATE_ONBOARDING: false
           RENOVATE_LOG_LEVEL: debug
           DEBUG: hostRules,config,docker,renovate,regexManagers
-          RENOVATE_DOCKER_USERNAME: ${{ secrets.NGC_REGISTRY_USER }}
-          RENOVATE_DOCKER_PASSWORD: ${{ secrets.NGC_REGISTRY_TOKEN }}
+          # RENOVATE_DOCKER_USERNAME: ${{ secrets.NGC_REGISTRY_USER }}
+          # RENOVATE_DOCKER_PASSWORD: ${{ secrets.NGC_REGISTRY_TOKEN }}
 
