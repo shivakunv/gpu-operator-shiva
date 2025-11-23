@@ -23,9 +23,7 @@
       "lookupNameTemplate": "{{depName}}:{{currentValue}}",
       "extractVersionTemplate": "{{{currentValue}}}",
       "matchStrings": [
-        "[-\\s]*value:\\s*\"?(?<depName>[^:@\"]+)(?::(?<currentValue>[^@\"]+))?@(?<currentDigest>sha256:[a-f0-9]{64})\"?",
-        "[-\\s]*image: (?<depName>[^:@\\s]+)(?:@sha256:)?(?<currentValue>[a-fA-F0-9]{64})",
-        "- name: (?<suffix>[\\w-]+)[-\\s]*image: (?<depName>[^:@\"]+)(?::(?<currentValue>[^@\"]+))?@(?<currentDigest>sha256:[a-f0-9]{64})"
+        "[-\\s]*image:\\s*(?<depName>[^:@\\s]+)(?:@sha256:)?(?<currentValue>[a-fA-F0-9]{64})"
       ],
       "datasourceTemplate": "docker",
       "versioningTemplate": "{{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}"
