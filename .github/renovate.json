@@ -1,53 +1,87 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended",
-    ":disableDependencyDashboard"
-  ],
-
+  "extends": ["config:recommended", ":disableDependencyDashboard"],
   "prHourlyLimit": 10,
   "prConcurrentLimit": 10,
   "forkProcessing": "enabled",
   "ignorePaths": ["vendor/**"],
   "enabledManagers": ["custom.regex"],
   "recreateWhen": "always",
+  "separateMultipleMajor": false,
+  "separateMinorPatch": false,
   "pruneStaleBranches": true,
-
   "customManagers": [
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "deployments/gpu-operator/values.yaml"
-      ],
-      "matchStrings": [
-        "repository:\\s*(?<repo>\\S+)\\s*[\\s\\S]*?image:\\s*(?<image>\\S+)\\s*[\\s\\S]*?version:\\s*(?<currentValue>\\S+)"
-      ],
-      "depNameTemplate": "{{repo}}/{{image}}",
-      "lookupNameTemplate": "{{repo}}/{{image}}:{{currentValue}}",
-      "extractVersionTemplate": "{{currentValue}}",
-      "datasourceTemplate": "docker"
-    },
     {
       "customType": "regex",
       "managerFilePatterns": [
         "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
       ],
       "matchStrings": [
-        "(?<depName>nvcr\\.io\\/nvidia\\/[A-Za-z0-9\\-]+):(?<currentValue>[^@\\s]+)@(?<currentDigest>sha256:[a-f0-9]{64})"
+        "[-\\s]*value:\\s*\"?(?<depName>[^:\"]+)(?::(?<currentValue>[^@\"]+))?@(?<currentDigest>sha256:[a-f0-9]{64})\"?",
+        "[-\\s]*image: (?<depName>.*?)(?::(?<currentValue>.*?))?@(?<currentDigest>sha256:[a-f0-9]{64})",
+        "- name: (?<suffix>[\\w-]+)[-\\s]*image: (?<depName>.*?)(?::(?<currentValue>.*?))?@(?<currentDigest>sha256:[a-f0-9]{64})"
       ],
-      "depNameTemplate": "{{depName}}",
-      "lookupNameTemplate": "{{depName}}:{{currentValue}}",
-      "extractVersionTemplate": "{{currentValue}}",
       "datasourceTemplate": "docker",
-      "versioningTemplate": "{{depName}}:{{newValue}}@{{newDigest}}"
+      "lookupNameTemplate": "{{depName}}:{{currentValue}}",
+      "extractVersion": "^(?<version>.*)$",
+      "updatePolicy": "digest",
+      "versioning": "loose",
+      "pinVersions": false,
+
+      "versioningTemplate": "{{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["deployments/gpu-operator/values.yaml"],
+      "matchStrings": [
+        "[-\\s]*repository:\\s*(?<repo>\\S+)\\s*\\n(?:\\s*#.*\\n|\\s*\\n)*[-\\s]*image:\\s*(?<image>\\S+)\\s*\\n(?:\\s*#.*\\n|\\s*\\n)*[-\\s]*version:\\s*(?<currentValue>\\S+)"
+      ],
+      "depNameTemplate": "{{repo}}/{{image}}",
+      "datasourceTemplate": "docker",
+      "versioning": "loose"
     }
   ],
-
   "packageRules": [
+    {
+      "matchPaths": ["deployments/gpu-operator/values.yaml"],
+      "matchPackageNames": [
+        "nvcr.io/nvidia/cloud-native/k8s-device-plugin",
+        "nvcr.io/nvidia/cloud-native/k8s-driver-manager",
+        "nvcr.io/nvidia/cloud-native/k8s-kata-manager",
+        "nvcr.io/nvidia/cloud-native/vgpu-device-manager",
+        "nvcr.io/nvidia/cloud-native/vgpu-cc-manager",
+        "nvcr.io/nvidia/kubevirt-gpu-device-plugin"
+      ],
+      "versioning": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+    },
+    {
+      "matchPaths": ["deployments/gpu-operator/values.yaml"],
+      "matchPackageNames": [
+        "nvcr.io/nvidia/k8s/container-toolkit",
+        "nvcr.io/nvidia/cloud-native/k8s-mig-manager"
+      ],
+      "versioning": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ubuntu(?<ubuntu>\\d+\\.\\d+)$"
+    },
+    {
+      "matchPaths": ["deployments/gpu-operator/values.yaml"],
+      "matchPackageNames": ["nvcr.io/nvidia/cuda"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-base-ubi9$"
+    },
+    {
+      "matchPaths": ["deployments/gpu-operator/values.yaml"],
+      "matchPackageNames": ["nvcr.io/nvidia/k8s/dcgm-exporter"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-distroless$"
+    },
+    {
+      "matchPackageNames": ["nvcr.io/nvidia/driver"],
+      "enabled": false
+    },
     {
       "matchDatasources": ["docker"],
       "pinDigests": true,
-      "digest": true
-     }
+      "digest": false,
+      "groupName": "{{depName}} (tag+digest)"
+    }
   ]
 }
+
