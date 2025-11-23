@@ -1,13 +1,5 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "hostRules": [
-    {
-      "hostType": "docker",
-      "matchHost": "nvcr.io",
-      "username": "{{ env.USERNAME }}",
-      "password": "{{ env.PASSWORD }}"
-    }
-  ],
   "extends": [
     "config:recommended",
     ":disableDependencyDashboard"
