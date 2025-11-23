@@ -28,7 +28,7 @@
       "extractVersionTemplate": "{{currentValue}}",
 
       "matchStrings": [
-        "image:\\s*(?<depName>[^:@\\s]+)@sha256:(?<currentValue>[a-f0-9]{64})"
+        "[-\\s]*image:\\s*(?<depName>[^:@\\s]+)@sha256:(?<currentValue>[a-f0-9]{64})"
       ]
     },
 
