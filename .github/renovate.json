@@ -22,12 +22,11 @@
       ],
       "depNameTemplate": "{{repo}}/{{image}}",
       "datasourceTemplate": "docker",
-      "extractVersionTemplate": "{{currentValue}}",
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+      "extractVersionTemplate": "{{currentValue}}"
     },
 
     /* -------------------------------
-       2. CSV MANAGER (FOLLOWS VALUES.YAML)
+       2. CSV MANAGER (FOLLOW VALUES.YAML)
        -------------------------------- */
     {
       "customType": "regex",
@@ -38,29 +37,25 @@
         "image:\\s*(?<depName>[^:@]+):(?<currentValue>[^@]+)@(?<currentDigest>sha256:[a-f0-9]{64})"
       ],
 
-      /* depName must MATCH values.yaml depName */
       "depNameTemplate": "{{depName}}",
       "datasourceTemplate": "docker",
 
-      /* Makes CSV accept digest & tag coming from values.yaml */
-      "extractVersionTemplate": "{{currentValue}}",
-      "extractDigestTemplate": "{{currentDigest}}",
-
-      /* ensures the CSV line updates exactly */
-      "versioningTemplate": "{{depName}}:{{newValue}}@{{newDigest}}"
+      /* Extract version and digest via regex groups */
+      "extractVersionTemplate": "{{currentValue}}"
     }
   ],
 
   /* -------------------------------
-     PACKAGE RULES APPLIED TO ALL
+     PACKAGE RULES
      -------------------------------- */
   "packageRules": [
     {
-      /* Prevent beta/pre-release versions */
+      /* REQUIRED: add a selector so the rule is valid */
+      "matchDatasources": ["docker"],
       "allowedVersions": "^\\d+\\.\\d+\\.\\d+$"
     },
     {
-      /* GROUPING VALUES + CSV IN ONE PR */
+      /* Group VALUES + CSV updates in the same PR */
       "matchPaths": [
         "deployments/gpu-operator/values.yaml",
         "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
@@ -70,9 +65,10 @@
       "separateMinorPatch": false
     },
     {
-      /* Enable digest pinning */
+      /* enable digest pinning */
       "matchDatasources": ["docker"],
       "pinDigests": true
     }
   ]
 }
+
