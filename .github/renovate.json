@@ -36,10 +36,12 @@
         "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
       ],
       "matchStrings": [
-        "(?<depName>[^:\"]+)(?::(?<currentValue>[^@\"]+))?@(?<currentDigest>sha256:[a-f0-9]{64})"
+        "value:\\s*\"(?<depName>[^:\"]+\\/[^\"]+):(?<currentValue>[^@\"]+)@(?<currentDigest>sha256:[a-f0-9]{64})\"",
+        "image:\\s*(?<depName>[^:\\s]+\\/[^\"]+):(?<currentValue>[^@\\s]+)@(?<currentDigest>sha256:[a-f0-9]{64})"
       ],
-      "versioningTemplate": "{{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}",
-      "datasourceTemplate": "docker"
+      "extractVersionTemplate": "{{ currentValue }}",
+      "datasourceTemplate": "docker",
+      "versioning": "docker"
     },
     {
       "customType": "regex",
@@ -72,6 +74,7 @@
     {
       "matchPaths": ["deployments/gpu-operator/values.yaml"],
       "matchPackageNames": [
+        "nvcr.io/nvidia/k8s/container-toolkit",
         "nvcr.io/nvidia/cloud-native/k8s-mig-manager"
       ],
       "versioning": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ubuntu(?<ubuntu>\\d+\\.\\d+)$",
@@ -86,17 +89,7 @@
     {
       "matchPaths": ["deployments/gpu-operator/values.yaml"],
       "matchPackageNames": ["nvcr.io/nvidia/k8s/dcgm-exporter"],
-      "versioning": [
-        "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-distroless$"
-      ],
-      "separateMajorMinor": false
-    },
-    {
-      "matchPaths": ["deployments/gpu-operator/values.yaml"],
-      "matchPackageNames": ["nvcr.io/nvidia/cloud-native/dcgm"],
-      "versioning": [
-        "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ubuntu(?<ubuntu>\\d+\\.\\d+)$"
-      ],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-distroless$",
       "separateMajorMinor": false
     },
     {
