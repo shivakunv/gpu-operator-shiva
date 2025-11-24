@@ -71,7 +71,7 @@
       "matchPackageNames": [
         "nvcr.io/nvidia/cloud-native/k8s-mig-manager"
       ],
-      "versioning": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ubuntu(?<ubuntu>\\d+\\.\\d+)$",
+      "versioning": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(?:-ubuntu(?<ubuntu>\\d+\\.\\d+))?$",
       "separateMajorMinor": false
     },
     {
@@ -81,7 +81,7 @@
     },
     {
       "matchPackageNames": ["nvcr.io/nvidia/k8s/dcgm-exporter"],
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-distroless$",
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-\\d+\\.\\d+\\.\\d+-(?:ubuntu\\d+\\.\\d+|distroless)$",
       "separateMajorMinor": false
     },
     {
