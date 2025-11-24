@@ -87,7 +87,18 @@
     {
       "matchPaths": ["deployments/gpu-operator/values.yaml"],
       "matchPackageNames": ["nvcr.io/nvidia/k8s/dcgm-exporter"],
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-distroless$",
+      "versioning": [
+        "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-distroless$",
+        "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ubuntu(?<ubuntu>\\d+\\.\\d+)$"
+      ],
+      "separateMajorMinor": false
+    },
+    {
+      "matchPaths": ["deployments/gpu-operator/values.yaml"],
+      "matchPackageNames": ["nvcr.io/nvidia/cloud-native/dcgm"],
+      "versioning": [
+        "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ubuntu(?<ubuntu>\\d+\\.\\d+)$"
+      ],
       "separateMajorMinor": false
     },
     {
