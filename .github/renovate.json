@@ -9,9 +9,6 @@
 
   "customManagers": [
 
-    /* -------------------------------
-       1. VALUES.YAML MANAGER
-       -------------------------------- */
     {
       "customType": "regex",
       "managerFilePatterns": [
@@ -25,9 +22,6 @@
       "extractVersionTemplate": "{{currentValue}}"
     },
 
-    /* -------------------------------
-       2. CSV MANAGER (FOLLOW VALUES.YAML)
-       -------------------------------- */
     {
       "customType": "regex",
       "managerFilePatterns": [
@@ -40,22 +34,16 @@
       "depNameTemplate": "{{depName}}",
       "datasourceTemplate": "docker",
 
-      /* Extract version and digest via regex groups */
       "extractVersionTemplate": "{{currentValue}}"
     }
   ],
 
-  /* -------------------------------
-     PACKAGE RULES
-     -------------------------------- */
   "packageRules": [
     {
-      /* REQUIRED: add a selector so the rule is valid */
       "matchDatasources": ["docker"],
       "allowedVersions": "^\\d+\\.\\d+\\.\\d+$"
     },
     {
-      /* Group VALUES + CSV updates in the same PR */
       "matchPaths": [
         "deployments/gpu-operator/values.yaml",
         "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
@@ -65,7 +53,6 @@
       "separateMinorPatch": false
     },
     {
-      /* enable digest pinning */
       "matchDatasources": ["docker"],
       "pinDigests": true
     }
