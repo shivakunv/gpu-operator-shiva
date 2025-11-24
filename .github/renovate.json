@@ -5,6 +5,20 @@
   "dependencyDashboard": false,
   "extends": [
     "config:recommended",
+    ":disableDependencyDashboard",
+    "config:recommended",
+    ":disableDependencyDashboard",
+    "config:recommended",
+    ":disableDependencyDashboard",
+    "config:recommended",
+    ":disableDependencyDashboard",
+    "config:recommended",
+    ":disableDependencyDashboard",
+    "config:recommended",
+    ":disableDependencyDashboard",
+    "config:recommended",
+    ":disableDependencyDashboard",
+    "config:recommended",
     ":disableDependencyDashboard"
   ],
   "forkProcessing": "enabled",
@@ -19,33 +33,71 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
+        "deployments/gpu-operator/values.yaml"
       ],
       "matchStrings": [
-        "image:\\s*(?<depName>[^:@\\s]+)(?::(?<currentValue>[^@\\s]+))?@(?<currentDigest>sha256:[a-f0-9]{64})",
-        "value:\\s*\"(?<depName>[^:@\\s]+)(?::(?<currentValue>[^@\\\"]+))?@(?<currentDigest>sha256:[a-f0-9]{64})\""
+        "[-\\s]*repository:\\s*(?<repo>\\S+)\\s*\\n(?:\\s*#.*\\n|\\s*\\n)*[-\\s]*image:\\s*(?<image>\\S+)\\s*\\n(?:\\s*#.*\\n|\\s*\\n)*[-\\s]*version:\\s*(?<currentValue>\\S+)"
       ],
+      "depNameTemplate": "{{repo}}/{{image}}",
       "datasourceTemplate": "docker",
-      "extractVersionTemplate": "{{#if currentValue}}{{currentValue}}{{else}}{{currentDigest}}{{/if}}"
+      "versioningTemplate": "loose"
     },
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "deployments/gpu-operator/values.yaml"
+        "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
       ],
       "matchStrings": [
-        "repository:\\s*(?<repo>\\S+)\\s*\\n(?:.*\\n)*?image:\\s*(?<image>\\S+)\\s*\\n(?:.*\\n)*?version:\\s*(?<currentValue>\\S+)"
+        "(?<depName>[^:\"]+):(?<currentValue>[^@\"]+)@(?<currentDigest>sha256:[a-f0-9]{64})"
       ],
-      "depNameTemplate": "{{repo}}/{{image}}",
-      "datasourceTemplate": "docker",
-      "extractVersionTemplate": "{{currentValue}}"
+      "datasourceTemplate": "docker"
     }
   ],
 
   "packageRules": [
     {
+      "matchPackageNames": [
+        "nvcr.io/nvidia/cloud-native/k8s-driver-manager",
+        "nvcr.io/nvidia/cloud-native/k8s-kata-manager",
+        "nvcr.io/nvidia/cloud-native/vgpu-device-manager",
+        "nvcr.io/nvidia/cloud-native/vgpu-cc-manager",
+        "nvcr.io/nvidia/kubevirt-gpu-device-plugin",
+        "nvcr.io/nvidia/k8s-device-plugin"
+      ],
+      "versioning": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "separateMajorMinor": false
+    },
+    {
+      "matchPackageNames": [
+        "nvcr.io/nvidia/cloud-native/k8s-mig-manager"
+      ],
+      "versioning": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ubuntu(?<ubuntu>\\d+\\.\\d+)$",
+      "separateMajorMinor": false
+    },
+    {
+      "matchPackageNames": ["nvcr.io/nvidia/cuda"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-base-ubi9$",
+      "separateMajorMinor": false
+    },
+    {
+      "matchPackageNames": ["nvcr.io/nvidia/k8s/dcgm-exporter"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-distroless$",
+      "separateMajorMinor": false
+    },
+    {
+      "matchPackageNames": ["nvcr.io/nvidia/cloud-native/dcgm"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ubuntu(?<ubuntu>\\d+\\.\\d+)$",
+      "separateMajorMinor": false
+    },
+    {
+      "matchPackageNames": ["nvcr.io/nvidia/driver"],
+      "enabled": false
+    },
+    {
       "matchDatasources": ["docker"],
-      "versioning": "loose"
+      "groupName": "{{depName}}",
+      "branchTopic": "{{depName}}",
+      "commitMessageTopic": "{{depName}}"
     }
   ]
 }
