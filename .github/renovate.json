@@ -19,8 +19,7 @@
       ],
       "depNameTemplate": "{{repo}}/{{image}}",
       "datasourceTemplate": "docker",
-      "extractVersionTemplate": "{{currentValue}}",
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+      "extractVersionTemplate": "{{currentValue}}"
     },
 
     {
@@ -35,15 +34,13 @@
       "depNameTemplate": "{{depName}}",
       "datasourceTemplate": "docker",
 
-      "extractVersionTemplate": "{{currentValue}}",
-      "extractDigestTemplate": "{{currentDigest}}",
-
-      "versioningTemplate": "{{depName}}:{{newValue}}@{{newDigest}}"
+      "extractVersionTemplate": "{{currentValue}}"
     }
   ],
 
   "packageRules": [
     {
+      "matchDatasources": ["docker"],
       "allowedVersions": "^\\d+\\.\\d+\\.\\d+$"
     },
     {
