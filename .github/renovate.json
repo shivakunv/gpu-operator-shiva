@@ -1,95 +1,78 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "prHourlyLimit": 10,
-  "prConcurrentLimit": 10,
-  "dependencyDashboard": false,
+
   "extends": ["config:recommended", ":disableDependencyDashboard"],
-  "forkProcessing": "enabled",
-  "ignorePaths": ["vendor/**"],
   "enabledManagers": ["custom.regex"],
+  "forkProcessing": "enabled",
   "recreateWhen": "always",
-  "separateMultipleMajor": false,
-  "separateMinorPatch": false,
   "pruneStaleBranches": true,
+
   "customManagers": [
+
+    /* -------------------------------
+       1. VALUES.YAML MANAGER
+       -------------------------------- */
     {
       "customType": "regex",
       "managerFilePatterns": [
         "deployments/gpu-operator/values.yaml"
       ],
       "matchStrings": [
-        "[-\\s]*repository:\\s*(?<repo>[^:@]+)\\s*\\n(?:\\s*#.*\\n|\\s*\\n)*[-\\s]*image:\\s*(?<image>[^:@]+)\\s*\\n(?:\\s*#.*\\n|\\s*\\n)*[-\\s]*version:\\s*(?<currentValue>\\S+)"
+        "repository:\\s*(?<repo>[^\\s]+)\\s*\\n\\s*image:\\s*(?<image>[^\\s]+)\\s*\\n\\s*version:\\s*(?<currentValue>[^\\s]+)"
       ],
       "depNameTemplate": "{{repo}}/{{image}}",
       "datasourceTemplate": "docker",
-      "currentValueTemplate": "{{currentValue}}",
-      "versioningTemplate": "loose"
+      "extractVersionTemplate": "{{currentValue}}",
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     },
+
+    /* -------------------------------
+       2. CSV MANAGER (FOLLOWS VALUES.YAML)
+       -------------------------------- */
     {
       "customType": "regex",
       "managerFilePatterns": [
         "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
       ],
       "matchStrings": [
-        "[-\\s]*value:\\s*\"?(?<depName>[^:@\"]+)(?::(?<currentValue>[^@\"]+))?@(?<currentDigest>sha256:[a-f0-9]{64})\"?",
-        "[-\\s]*image: (?<depName>[^:@\\s]+)(?::(?<currentValue>[^@\\s]+))?@(?<currentDigest>sha256:[a-f0-9]{64})",
-        "- name: (?<suffix>[\\w-]+)[-\\s]*image: (?<depName>[^:@\"]+)(?::(?<currentValue>[^@\"]+))?@(?<currentDigest>sha256:[a-f0-9]{64})"
+        "image:\\s*(?<depName>[^:@]+):(?<currentValue>[^@]+)@(?<currentDigest>sha256:[a-f0-9]{64})"
       ],
+
+      /* depName must MATCH values.yaml depName */
       "depNameTemplate": "{{depName}}",
       "datasourceTemplate": "docker",
-      "currentValueTemplate": "{{currentValue}}",
-      "versioningTemplate": "{{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}"
+
+      /* Makes CSV accept digest & tag coming from values.yaml */
+      "extractVersionTemplate": "{{currentValue}}",
+      "extractDigestTemplate": "{{currentDigest}}",
+
+      /* ensures the CSV line updates exactly */
+      "versioningTemplate": "{{depName}}:{{newValue}}@{{newDigest}}"
     }
   ],
+
+  /* -------------------------------
+     PACKAGE RULES APPLIED TO ALL
+     -------------------------------- */
   "packageRules": [
     {
-      "matchPaths": ["deployments/gpu-operator/values.yaml", "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"],
-      "matchPackageNames": [
-        "nvcr.io/nvidia/cloud-native/k8s-device-plugin",
-        "nvcr.io/nvidia/cloud-native/k8s-driver-manager",
-        "nvcr.io/nvidia/cloud-native/k8s-kata-manager",
-        "nvcr.io/nvidia/cloud-native/vgpu-device-manager",
-        "nvcr.io/nvidia/cloud-native/vgpu-cc-manager",
-        "nvcr.io/nvidia/kubevirt-gpu-device-plugin"
+      /* Prevent beta/pre-release versions */
+      "allowedVersions": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    {
+      /* GROUPING VALUES + CSV IN ONE PR */
+      "matchPaths": [
+        "deployments/gpu-operator/values.yaml",
+        "bundle/manifests/gpu-operator-certified.clusterserviceversion.yaml"
       ],
       "groupName": "{{depName}}",
       "separateMajorMinor": false,
       "separateMinorPatch": false
     },
     {
-      "matchPaths": ["deployments/gpu-operator/values.yaml"],
-      "matchPackageNames": [
-        "nvcr.io/nvidia/k8s/container-toolkit",
-        "nvcr.io/nvidia/cloud-native/k8s-mig-manager"
-      ],
-      "versioning": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ubuntu(?<ubuntu>\\d+\\.\\d+)$",
-      "separateMajorMinor": false
-    },
-    {
-      "matchPaths": ["deployments/gpu-operator/values.yaml"],
-      "matchPackageNames": ["nvcr.io/nvidia/cuda"],
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-base-ubi9$",
-      "separateMajorMinor": false
-    },
-    {
-      "matchPaths": ["deployments/gpu-operator/values.yaml"],
-      "matchPackageNames": ["nvcr.io/nvidia/k8s/dcgm-exporter"],
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-distroless$",
-      "separateMajorMinor": false
-    },
-    {
-      "matchPackageNames": ["nvcr.io/nvidia/driver"],
-      "enabled": false
-    },
-    {
-      "matchPackageNames": ["ghcr.io/nvidia/gpu-operator"],
-      "enabled": false
-    },
-    {
+      /* Enable digest pinning */
       "matchDatasources": ["docker"],
-      "pinDigests": true,
-      "digest": false,
-      "groupName": "{{depName}} (tag+digest)"
+      "pinDigests": true
     }
   ]
 }
