@@ -82,6 +82,10 @@
       "enabled": false
     },
     {
+      "matchPackageNames": ["ghcr.io/nvidia/gpu-operator"],
+      "enabled": false
+    },
+    {
       "matchDatasources": ["docker"],
       "pinDigests": true,
       "digest": false,
