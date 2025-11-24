@@ -41,7 +41,7 @@
   "packageRules": [
     {
       "matchDatasources": ["docker"],
-      "allowedVersions": "^\\d+\\.\\d+\\.\\d+$"
+      "allowedVersions": ".*"
     },
     {
       "matchPaths": [
