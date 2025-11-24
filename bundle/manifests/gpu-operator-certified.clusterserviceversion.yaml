@@ -913,7 +913,7 @@ spec:
                   - name: "GFD_IMAGE"
                     value: "nvcr.io/nvidia/k8s-device-plugin:v0.17.4@sha256:3c54348fe5a57e5700e7d8068e7531d2ef2d5f3ccb70c8f6bac0953432527abd"
                   - name: "CONTAINER_TOOLKIT_IMAGE"
-                    value: "nvcr.io/nvidia/k8s/container-toolkit:v1.18.0-rc.5@sha256:e09cd6e72f3fa311f52f7d593a417bacb718e0d6adfc38f7a614b5094c3339a1"
+                    value: "nvcr.io/nvidia/k8s/container-toolkit:22402053@sha256:cac94b722078487010a3f5150c4930f0851d65675f36a4d3fec29826331f1afe"
                   - name: "DCGM_IMAGE"
                     value: "nvcr.io/nvidia/cloud-native/dcgm:4.4.1-2-ubuntu22.04@sha256:efa3674ec7418064209c38214d978d61208f3b85c7d064f3cce788a659b8026a"
                   - name: "DCGM_EXPORTER_IMAGE"
