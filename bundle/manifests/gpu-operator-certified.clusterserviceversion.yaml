@@ -201,9 +201,7 @@ spec:
   apiservicedefinitions: {}
   relatedImages:
     - name: gpu-operator-image
-      image: ghcr.io/nvidia/gpu-operator:main-latest
-    - name: dcgm-exporter-image
-      image: nvcr.io/nvidia/k8s/dcgm-exporter@sha256:66af937cf0b8f7a637bcb761f5899b10c0c59a5efd4b1b5d43228a938fb10d87
+      image: ghcr.io/nvidia/gpu-operator:95270713@sha256:5e94c34af7290f952a6d5f11bc579748c5890df68735cf9f9ee616e394a261e1
     - name: dcgm-image
       image: nvcr.io/nvidia/cloud-native/dcgm@sha256:d42cd2afe032d9bfcb101cc2f739683b123a6c744f2732f221362a3cac776806
     - name: container-toolkit-image
@@ -223,9 +221,7 @@ spec:
     - name: init-container-image
       image: nvcr.io/nvidia/cuda@sha256:d19fe621624c4eb6ac931b8558daa3ecc0c3f07f1e2a52e0267e083d22dceade
     - name: gpu-operator-validator-image
-      image: ghcr.io/nvidia/gpu-operator:main-latest
-    - name: k8s-driver-manager-image
-      image: nvcr.io/nvidia/cloud-native/k8s-driver-manager@sha256:b689dfb7806ae51b0072620b47c26114f05477e8ad9725892ee10366e5d93d8d
+      image: ghcr.io/nvidia/gpu-operator:95270713@sha256:5e94c34af7290f952a6d5f11bc579748c5890df68735cf9f9ee616e394a261e1
     - name: vfio-manager-image
       image: nvcr.io/nvidia/cuda@sha256:d19fe621624c4eb6ac931b8558daa3ecc0c3f07f1e2a52e0267e083d22dceade
     - name: sandbox-device-plugin-image
