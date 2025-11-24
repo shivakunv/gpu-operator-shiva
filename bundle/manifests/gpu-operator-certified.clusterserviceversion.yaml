@@ -927,7 +927,7 @@ spec:
                   - name: "DRIVER_IMAGE-535"
                     value: "nvcr.io/nvidia/driver@sha256:43aa99352e1dc47e9218f36340ae6328a6282ed1e7e9a61b4204475e980230ef"
                   - name: "DRIVER_MANAGER_IMAGE"
-                    value: "nvcr.io/nvidia/cloud-native/k8s-driver-manager:v0.8.1@sha256:b689dfb7806ae51b0072620b47c26114f05477e8ad9725892ee10366e5d93d8d"
+                    value: "nvcr.io/nvidia/cloud-native/k8s-driver-manager:v0.9.0@sha256:a6c12abacc9c4f51d3653c90fcad32f19799069889338601407eba05fea4ba18"
                   - name: "MIG_MANAGER_IMAGE"
                     value: "nvcr.io/nvidia/cloud-native/k8s-mig-manager:v0.12.3-ubuntu20.04@sha256:88aca21bc5aa329dd82d52ed0f8a56d20d827992493b3b9bbdea1b4c1ad37eea"
                   - name: "CUDA_BASE_IMAGE"
