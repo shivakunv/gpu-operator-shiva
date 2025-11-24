@@ -72,7 +72,6 @@
     {
       "matchPaths": ["deployments/gpu-operator/values.yaml"],
       "matchPackageNames": [
-        "nvcr.io/nvidia/k8s/container-toolkit",
         "nvcr.io/nvidia/cloud-native/k8s-mig-manager"
       ],
       "versioning": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ubuntu(?<ubuntu>\\d+\\.\\d+)$",
