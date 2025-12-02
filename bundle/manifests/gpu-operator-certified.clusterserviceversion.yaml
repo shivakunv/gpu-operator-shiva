@@ -929,7 +929,7 @@ spec:
                   - name: "DRIVER_MANAGER_IMAGE"
                     value: "nvcr.io/nvidia/cloud-native/k8s-driver-manager:v0.8.1@sha256:b689dfb7806ae51b0072620b47c26114f05477e8ad9725892ee10366e5d93d8d"
                   - name: "MIG_MANAGER_IMAGE"
-                    value: "nvcr.io/nvidia/cloud-native/k8s-mig-manager:v0.12.3-ubuntu20.04@sha256:88aca21bc5aa329dd82d52ed0f8a56d20d827992493b3b9bbdea1b4c1ad37eea"
+                    value: "nvcr.io/nvidia/cloud-native/k8s-mig-manager:v0.13.0@sha256:98a4384d4d9d2c182dea61e37d5a0bff2457190c303507d98093102ce0de6dae"
                   - name: "CUDA_BASE_IMAGE"
                     value: "nvcr.io/nvidia/cuda:13.0.1-base-ubi9@sha256:7c0fc080d4558e7fd10a4d3245ce7bae2f64f43d2d666eb9c56300d8169fb32f"
                   - name: "VFIO_MANAGER_IMAGE"
