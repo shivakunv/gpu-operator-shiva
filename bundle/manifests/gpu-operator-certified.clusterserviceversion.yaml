@@ -203,7 +203,7 @@ spec:
     - name: gpu-operator-image
       image: ghcr.io/nvidia/gpu-operator:main-latest
     - name: dcgm-exporter-image
-      image: nvcr.io/nvidia/k8s/dcgm-exporter:4.4.1-4.5.2-ubuntu22.04@sha256:d22403c31e5f17d089f909a3d9f0e4e5114258ea063a81f9268c55d5ab663cf1
+      image: nvcr.io/nvidia/k8s/dcgm-exporter:4.4.1-4.5.2-distroless@sha256:a11db8b8dd314728c0657d581fc9df9233bde95b313a2d9fe0720730d4fcaff1
     - name: dcgm-image
       image: nvcr.io/nvidia/cloud-native/dcgm:4.4.1-2-ubi9@sha256:d42cd2afe032d9bfcb101cc2f739683b123a6c744f2732f221362a3cac776806
     - name: container-toolkit-image
@@ -917,7 +917,7 @@ spec:
                   - name: "DCGM_IMAGE"
                     value: "nvcr.io/nvidia/cloud-native/dcgm:4.4.1-2-ubi9@sha256:d42cd2afe032d9bfcb101cc2f739683b123a6c744f2732f221362a3cac776806"
                   - name: "DCGM_EXPORTER_IMAGE"
-                    value: "nvcr.io/nvidia/k8s/dcgm-exporter:4.4.1-4.5.2-ubuntu22.04@sha256:d22403c31e5f17d089f909a3d9f0e4e5114258ea063a81f9268c55d5ab663cf1"
+                    value: "nvcr.io/nvidia/k8s/dcgm-exporter:4.4.1-4.5.2-distroless@sha256:a11db8b8dd314728c0657d581fc9df9233bde95b313a2d9fe0720730d4fcaff1"
                   - name: "DEVICE_PLUGIN_IMAGE"
                     value: "nvcr.io/nvidia/k8s-device-plugin:v0.17.4@sha256:3c54348fe5a57e5700e7d8068e7531d2ef2d5f3ccb70c8f6bac0953432527abd"
                   - name: "DRIVER_IMAGE"
