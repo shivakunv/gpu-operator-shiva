@@ -289,7 +289,7 @@ dcgmExporter:
   enabled: true
   repository: nvcr.io/nvidia/k8s
   image: dcgm-exporter
-  version: 4.4.1-4.5.2-distroless
+  version: 4.4.2-4.7.0-distroless
   imagePullPolicy: IfNotPresent
   env: []
   resources: {}
