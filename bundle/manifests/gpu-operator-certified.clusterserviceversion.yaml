@@ -915,7 +915,7 @@ spec:
                   - name: "CONTAINER_TOOLKIT_IMAGE"
                     value: "nvcr.io/nvidia/k8s/container-toolkit:v1.18.0-rc.5@sha256:e09cd6e72f3fa311f52f7d593a417bacb718e0d6adfc38f7a614b5094c3339a1"
                   - name: "DCGM_IMAGE"
-                    value: "nvcr.io/nvidia/cloud-native/dcgm:4.4.1-2-ubi9@sha256:d42cd2afe032d9bfcb101cc2f739683b123a6c744f2732f221362a3cac776806"
+                    value: "nvcr.io/nvidia/cloud-native/dcgm:4.4.2-1-ubi9@sha256:99187d6b023689f50cf065c77b96ba5aacfa26a618854608a1e31da5e826b765"
                   - name: "DCGM_EXPORTER_IMAGE"
                     value: "nvcr.io/nvidia/k8s/dcgm-exporter:4.4.1-4.5.2-distroless@sha256:a11db8b8dd314728c0657d581fc9df9233bde95b313a2d9fe0720730d4fcaff1"
                   - name: "DEVICE_PLUGIN_IMAGE"
