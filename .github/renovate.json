@@ -91,7 +91,7 @@
     },
     {
       "matchPackageNames": ["nvcr.io/nvidia/cloud-native/dcgm"],
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ubuntu(?<ubuntu>\\d+\\.\\d+)$",
+     "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(?<rev>\\d+)-(?<os>ubuntu|ubi)(?<osversion>\\d+(?:\\.\\d+)?)$",
       "separateMajorMinor": false
     },
     {
